@@ -37,7 +37,7 @@ programmers to create GUIs with GTK+'s flexible object-oriented
 framework. Features include type safe callbacks, widgets that are
 extensible using inheritance and over 110 classes that can be freely
 combined to quickly create complex user interfaces.
-k
+
 %description -l pl
 GTK-- jest wrapperem C++ dla Gimp ToolKit (GTK). GTK+ jest bibliotek±
 s³u¿±c± do tworzenia graficznych interfejsów. W pakiecie znajduje siê
