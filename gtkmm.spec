@@ -1,10 +1,11 @@
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK
 Name:		gtkmm
-Version:	1.2.2
+Version:	1.2.3
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
+Group(de):	X11/Libraries
 Group(pl):	X11/Biblioteki
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/gtkmm/%{name}-%{version}.tar.gz
 URL:		http://gtkmm.sourceforge.net/
@@ -38,6 +39,7 @@ tak¿e biblioteka GDK-- - wrapper C++ dla GDK (General Drawing Kit).
 Summary:	GTK-- and GDK-- header files, development documentation
 Summary(pl):	Pliki nag³ówkowe GTK-- i GDK--, dokumentacja dla programistów
 Group:		X11/Development/Libraries
+Group(de):	X11/Entwicklung/Libraries
 Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 Requires:	gtk+-devel
@@ -53,6 +55,7 @@ Pliki nag³ówkowe i dokumentacja dla programistów do biblioteki GTK--.
 Summary:	GTK-- and GDK-- static libraries
 Summary(pl):	Biblioteki statyczne GTK-- i GDK--
 Group:		X11/Development/Libraries
+Group(de):	X11/Entwicklung/Libraries
 Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
 Obsoletes:	Gtk---static
@@ -68,10 +71,7 @@ Biblioteki statyczne GTK-- i GDK--.
 
 %build
 autoconf
-
-LDFLAGS="-s"
 CXXFLAGS="$RPM_OPT_FLAGS -fno-exceptions"
-export LDFLAGS CXXFLAGS
 %configure \
 	--enable-static=yes
 %{__make}
