@@ -2,28 +2,28 @@
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK+
 Name:		gtkmm
-Version:	2.3.3
+Version:	2.3.4
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.3/%{name}-%{version}.tar.bz2
-# Source0-md5:	ce0e69ce4b0912e98a6e3a92e47e9a8f
+# Source0-md5:	f4ac45ff3529f2b15c6108d0a1db92e0
 URL:		http://gtkmm.sourceforge.net/
-BuildRequires:	atk-devel >= 1.5.0
+BuildRequires:	atk-devel >= 1.5.3
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	glibmm-devel >= 2.3.4
+BuildRequires:	glibmm-devel >= 2.3.5
 BuildRequires:	graphviz
 BuildRequires:	gtk+2-devel >= 2.3.2
-BuildRequires:	libsigc++-devel >= 1.2.1
+BuildRequires:	libsigc++-devel >= 1.9.14
 BuildRequires:	libstdc++-devel >= 5:3.3.1
 BuildRequires:	libtool >= 2:1.4d-3
 BuildRequires:	pango-devel >= 1.3.2
 BuildRequires:	perl >= 5.6
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-perlprov >= 3.0.3-16
-Requires:	%{name}-atk = %{version}
-Requires:	%{name}-pango = %{version}
+Requires:	%{name}-atk = %{version}-%{release}
+Requires:	%{name}-pango = %{version}-%{release}
 Requires:	cpp
 Obsoletes:	Gtk--
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -45,12 +45,12 @@ tak¿e biblioteka GDK-- - wrapper C++ dla GDK (General Drawing Kit).
 Summary:	GTK-- and GDK-- header files, development documentation
 Summary(pl):	Pliki nag³ówkowe GTK-- i GDK--, dokumentacja dla programistów
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
-Requires:	%{name}-atk-devel = %{version}
-Requires:	%{name}-pango-devel = %{version}
-Requires:	glibmm-devel >= 2.3.4
+Requires:	%{name} = %{version}-%{release}
+Requires:	%{name}-atk-devel = %{version}-%{release}
+Requires:	%{name}-pango-devel = %{version}-%{release}
+Requires:	glibmm-devel >= 2.3.5
 Requires:	gtk+2-devel >= 2.3.2
-Requires:	libsigc++-devel >= 1.2.1
+Requires:	libsigc++-devel >= 1.9.14
 
 %description devel
 Header files and development documentation for GTK-- library.
@@ -74,7 +74,7 @@ Szczegó³owa dokumentacja i przyk³ady dla GTK-- i GDK--.
 Summary:	GTK-- and GDK-- static libraries
 Summary(pl):	Biblioteki statyczne GTK-- i GDK--
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 GTK-- and GDK-- static libraries.
@@ -97,9 +97,9 @@ Interfejs C++ dla biblioteki atk.
 Summary:	A C++ interface for atk library - header files
 Summary(pl):	Interfejs C++ dla biblioteki atk - pliki nag³ówkowe
 Group:		X11/Development/Libraries
-Requires:	%{name}-atk = %{version}
+Requires:	%{name}-atk = %{version}-%{release}
 Requires:	atk-devel >= 1.5.3
-Requires:	glibmm-devel >= 2.3.4
+Requires:	glibmm-devel >= 2.3.5
 
 %description atk-devel
 A C++ interface for atk library - header files.
@@ -111,7 +111,7 @@ Interfejs C++ dla biblioteki atk - pliki nag³ówkowe.
 Summary:	A C++ interface for atk library - static version
 Summary(pl):	Interfejs C++ dla biblioteki atk - wersja statyczna
 Group:		X11/Development/Libraries
-Requires:	%{name}-atk-devel = %{version}
+Requires:	%{name}-atk-devel = %{version}-%{release}
 
 %description atk-static
 A C++ interface for atk library - static version.
@@ -134,8 +134,8 @@ Interfejs C++ dla biblioteki pango.
 Summary:	A C++ interface for pango library - header files
 Summary(pl):	Interfejs C++ dla biblioteki pango - pliki nag³ówkowe
 Group:		X11/Development/Libraries
-Requires:	%{name}-pango = %{version}
-Requires:	glibmm-devel >= 2.3.4
+Requires:	%{name}-pango = %{version}-%{release}
+Requires:	glibmm-devel >= 2.3.5
 Requires:	pango-devel >= 1.3.2
 
 %description pango-devel
@@ -148,7 +148,7 @@ Interfejs C++ dla biblioteki pango - pliki nag³ówkowe.
 Summary:	A C++ interface for pango library - static version
 Summary(pl):	Interfejs C++ dla biblioteki pango - wersja statyczna
 Group:		X11/Development/Libraries
-Requires:	%{name}-pango-devel = %{version}
+Requires:	%{name}-pango-devel = %{version}-%{release}
 
 %description pango-static
 A C++ interface for pango library - static version.
