@@ -8,20 +8,27 @@ License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.2/gtkmm-%{version}.tar.bz2
 Patch0:		%{name}-DESTDIR.patch
+Patch1:		%{name}-link.patch
+Patch2:		%{name}-acfix.patch
 URL:		http://gtkmm.sourceforge.net/
-Requires:	cpp
 BuildRequires:	atk-devel >= 1.2.0
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	esound-devel
 BuildRequires:	glib2-devel >= 2.2.1
 BuildRequires:	gtk+2-devel >= 2.2.1
 BuildRequires:	libsigc++-devel >= 1.2.1
 BuildRequires:	libstdc++-devel
+BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1.2.1
 BuildRequires:	perl >= 5.6
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-perlprov >= 3.0.3-16
 BuildRequires:	zlib-devel
+Requires:	%{name}-glib = %{version}
+Requires:	%{name}-pango = %{version}
+Requires:	%{name}-atk = %{version}
+Requires:	cpp
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	Gtk--
 
@@ -71,7 +78,7 @@ Biblioteki statyczne GTK-- i GDK--.
 Summary:	A C++ interface for atk library
 Summary(pl):	Interfejs C++ dla biblioteki atk
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name}-glib = %{version}
 
 %description atk
 A C++ interface for atk library.
@@ -109,7 +116,6 @@ Interfejs C++ dla biblioteki atk - wersja statyczna.
 Summary:	A C++ interface for glib library
 Summary(pl):	Interfejs C++ dla biblioteki glib
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
 
 %description glib
 A C++ interface for glib library.
@@ -147,7 +153,7 @@ Interfejs C++ dla biblioteki glib - wersja statyczna.
 Summary:	A C++ interface for pango library
 Summary(pl):	Interfejs C++ dla biblioteki pango
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name}-glib = %{version}
 
 %description pango
 A C++ interface for pango library.
@@ -159,7 +165,7 @@ Interfejs C++ dla biblioteki pango.
 Summary:	A C++ interface for pango library - header files
 Summary(pl):	Interfejs C++ dla biblioteki pango - pliki nag³ówkowe
 Group:		X11/Development/Libraries
-Requires:	%{name}-pango-devel = %{version}
+Requires:	%{name}-pango = %{version}
 Requires:	%{name}-glib-devel = %{version}
 Requires:	pango-devel >= 1.2.1
 
@@ -184,8 +190,14 @@ Interfejs C++ dla biblioteki pango - wersja statyczna.
 %prep
 %setup -q -n gtkmm-%{version}
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal} -I scripts
+%{__autoconf}
+%{__autoheader}
 %{__automake}
 # exceptions and rtti are used in this package --misiek
 %configure \
@@ -199,48 +211,47 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	pkgconfigdir=%{_pkgconfigdir}
 
+mv -f $RPM_BUILD_ROOT%{_docdir}/gtkmm-2.0/docs installed-docs
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+mv -f $RPM_BUILD_ROOT%{_docdir}/gtkmm-2.0/examples/* \
+	$RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%post -n %{name}-atk -p /sbin/ldconfig
-%postun -n %{name}-atk -p /sbin/ldconfig
+%post	-n %{name}-atk -p /sbin/ldconfig
+%postun	-n %{name}-atk -p /sbin/ldconfig
 
-%post -n %{name}-glib -p /sbin/ldconfig
-%postun -n %{name}-glib -p /sbin/ldconfig
+%post	-n %{name}-glib -p /sbin/ldconfig
+%postun	-n %{name}-glib -p /sbin/ldconfig
 
-%post -n %{name}-pango -p /sbin/ldconfig
-%postun -n %{name}-pango -p /sbin/ldconfig
+%post	-n %{name}-pango -p /sbin/ldconfig
+%postun	-n %{name}-pango -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
+%doc README ChangeLog AUTHORS NEWS
 %attr(755,root,root) %{_libdir}/libg[dt]kmm*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%doc README ChangeLog AUTHORS NEWS
-%{_examplesdir}/%{name}-%{version}
+%doc installed-docs/*
 %attr(755,root,root) %{_libdir}/libg[dt]kmm*.so
 %{_libdir}/libg[dt]kmm*.la
 
-%dir %{_libdir}/gtkmm-2.0
-%dir %{_libdir}/gtkmm-2.0/proc
-%dir %{_libdir}/gtkmm-2.0/include
-%dir %{_libdir}/pkgconfig
-
 %{_libdir}/gtkmm-*/include/g[dt]kmm*
+%dir %{_libdir}/gtkmm-2.0/proc
 %{_libdir}/gtkmm-*/proc/m4
 %{_libdir}/gtkmm-*/proc/pm
 %attr(755,root,root) %{_libdir}/gtkmm-*/proc/gtkmmproc
 %attr(755,root,root) %{_libdir}/gtkmm-*/proc/*.pl
-%{_pkgconfigdir}/g[dt]kmm*.pc
-
-%dir %{_includedir}/gtkmm-2.0
 
 %{_includedir}/gtkmm-2.0/g[dt]kmm*
-%{_defaultdocdir}/gtkmm-2.0/*
+%{_pkgconfigdir}/g[dt]kmm*.pc
+%{_examplesdir}/%{name}-%{version}
 
 %files static
 %defattr(644,root,root,755)
@@ -269,9 +280,14 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libglibmm*.so
 %{_libdir}/libglibmm*.la
+
+%dir %{_libdir}/gtkmm-2.0
+%dir %{_libdir}/gtkmm-2.0/include
 %{_libdir}/gtkmm-*/include/glibmm*
-%{_pkgconfigdir}/glibmm*.pc
+
+%dir %{_includedir}/gtkmm-2.0
 %{_includedir}/gtkmm-2.0/glibmm*
+%{_pkgconfigdir}/glibmm*.pc
 
 %files glib-static
 %defattr(644,root,root,755)

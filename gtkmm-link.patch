@@ -1,0 +1,48 @@
+--- gtkmm-2.2.1/pango/pangomm/Makefile.am.orig	Mon Oct 21 23:11:02 2002
++++ gtkmm-2.2.1/pango/pangomm/Makefile.am	Sat Apr 12 19:18:16 2003
+@@ -25,5 +25,5 @@
+ libpangomm_1_0_la_SOURCES	= $(files_all_general_cc) $(files_all_posix_cc)
+ endif
+ libpangomm_1_0_la_LDFLAGS	= $(common_ldflags)
+-libpangomm_1_0_la_LIBADD	= $(win32_dlls_extra_libs) $(PANGOMM_LIBS)
++libpangomm_1_0_la_LIBADD	= $(win32_dlls_extra_libs) $(PANGOMM_LIBS) ../../glib/glibmm/libglibmm-2.0.la
+ 
+--- gtkmm-2.2.1/atk/atkmm/Makefile.am.orig	Mon Oct 21 23:10:52 2002
++++ gtkmm-2.2.1/atk/atkmm/Makefile.am	Sat Apr 12 19:19:31 2003
+@@ -27,5 +27,5 @@
+ endif
+ 
+ libatkmm_1_0_la_LDFLAGS = $(common_ldflags)
+-libatkmm_1_0_la_LIBADD = $(win32_dlls_extra_libs) $(ATKMM_LIBS)
++libatkmm_1_0_la_LIBADD = $(win32_dlls_extra_libs) $(ATKMM_LIBS) ../../glib/glibmm/libglibmm-2.0.la
+ 
+--- gtkmm-2.2.1/gdk/gdkmm/Makefile.am.orig	Mon Oct 21 23:10:55 2002
++++ gtkmm-2.2.1/gdk/gdkmm/Makefile.am	Sat Apr 12 19:20:38 2003
+@@ -26,5 +26,5 @@
+ libgdkmm_2_0_la_SOURCES	= $(files_all_general_cc) $(files_all_posix_cc)
+ endif 
+ libgdkmm_2_0_la_LDFLAGS	= $(common_ldflags)
+-libgdkmm_2_0_la_LIBADD	= $(win32_dlls_extra_libs) $(GDKMM_LIBS)
++libgdkmm_2_0_la_LIBADD	= $(win32_dlls_extra_libs) $(GDKMM_LIBS) ../../pango/pangomm/libpangomm-1.0.la
+ 
+--- gtkmm-2.2.1/gtk/gtkmm/Makefile.am.orig	Mon Dec 23 17:54:57 2002
++++ gtkmm-2.2.1/gtk/gtkmm/Makefile.am	Sat Apr 12 19:21:47 2003
+@@ -28,5 +28,5 @@
+ libgtkmm_2_0_la_SOURCES	= $(files_all_general_cc) $(files_all_posix_cc)
+ endif
+ libgtkmm_2_0_la_LDFLAGS	= $(common_ldflags)
+-libgtkmm_2_0_la_LIBADD	= $(win32_dlls_extra_libs) $(GTKMM_LIBS)
++libgtkmm_2_0_la_LIBADD	= $(win32_dlls_extra_libs) $(GTKMM_LIBS) ../../gdk/gdkmm/libgdkmm-2.0.la ../../atk/atkmm/libatkmm-1.0.la
+ 
+--- gtkmm-2.2.1/tools/extra_defs_gen/Makefile.am.orig	Thu Mar  6 08:35:06 2003
++++ gtkmm-2.2.1/tools/extra_defs_gen/Makefile.am	Sat Apr 12 19:25:06 2003
+@@ -22,8 +22,7 @@
+ # This is not used to build the rest of gtkmm.
+ 
+ INCLUDES = $(GTKMM_CFLAGS)
+-LIBS = $(GTKMM_LIBS)
+ 
+ noinst_PROGRAMS = generate_extra_defs
+ generate_extra_defs_SOURCES = generate_defs_gtk.cc
+-generate_extra_defs_LDADD = libgtkmm_generate_extra_defs-2.0.la
++generate_extra_defs_LDADD = $(GTKMM_LIBS) libgtkmm_generate_extra_defs-2.0.la
