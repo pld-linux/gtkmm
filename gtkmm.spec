@@ -74,7 +74,7 @@ CXXFLAGS="$RPM_OPT_FLAGS -fno-exceptions"
 export LDFLAGS CXXFLAGS
 %configure \
 	--enable-static=yes
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
