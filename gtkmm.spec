@@ -12,12 +12,13 @@ Requires:	cpp
 BuildRequires:	atk-devel >= 1.0.0
 BuildRequires:	autoconf
 BuildRequires:	esound-devel
-BuildRequires:	glib2-devel >= 2.0.0
+BuildRequires:	glib2-devel >= 2.2.0
 BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	libsigc++-devel >= 1.2.1
 BuildRequires:	libstdc++-devel
 BuildRequires:	pango-devel >= 1.0.0
 BuildRequires:	perl >= 5.6
+BuildRequires:	pkgconfig
 BuildRequires:	rpm-perlprov >= 3.0.3-16
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
