@@ -2,7 +2,7 @@ Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK
 Name:		gtkmm
 Version:	1.2.3
-Release:	2
+Release:	3
 License:	LGPL
 Group:		X11/Libraries
 Group(de):	X11/Libraries
@@ -43,6 +43,7 @@ Group(de):	X11/Entwicklung/Libraries
 Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 Requires:	gtk+-devel
+Requires:	libstdc++-devel
 Obsoletes:	Gtk---devel
 
 %description devel
