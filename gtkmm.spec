@@ -25,12 +25,12 @@ BuildRequires:	perl >= 5.6
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-perlprov >= 3.0.3-16
 BuildRequires:	zlib-devel
+Requires:	%{name}-atk = %{version}
 Requires:	%{name}-glib = %{version}
 Requires:	%{name}-pango = %{version}
-Requires:	%{name}-atk = %{version}
 Requires:	cpp
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	Gtk--
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This package provides a C++ interface for GTK+ (the Gimp ToolKit) GUI
@@ -50,9 +50,9 @@ Summary:	GTK-- and GDK-- header files, development documentation
 Summary(pl):	Pliki nag³ówkowe GTK-- i GDK--, dokumentacja dla programistów
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
+Requires:	%{name}-atk-devel = %{version}
 Requires:	%{name}-glib-devel = %{version}
 Requires:	%{name}-pango-devel = %{version}
-Requires:	%{name}-atk-devel = %{version}
 Requires:	gtk+2-devel >= 2.2.1
 Requires:	libsigc++-devel >= 1.2.1
 
@@ -165,8 +165,8 @@ Interfejs C++ dla biblioteki pango.
 Summary:	A C++ interface for pango library - header files
 Summary(pl):	Interfejs C++ dla biblioteki pango - pliki nag³ówkowe
 Group:		X11/Development/Libraries
-Requires:	%{name}-pango = %{version}
 Requires:	%{name}-glib-devel = %{version}
+Requires:	%{name}-pango = %{version}
 Requires:	pango-devel >= 1.2.1
 
 %description pango-devel
@@ -188,7 +188,7 @@ A C++ interface for pango library - static version.
 Interfejs C++ dla biblioteki pango - wersja statyczna.
 
 %prep
-%setup -q -n gtkmm-%{version}
+%setup -q
 %patch0 -p1
 %patch1 -p1
 
@@ -205,13 +205,13 @@ Interfejs C++ dla biblioteki pango - wersja statyczna.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	pkgconfigdir=%{_pkgconfigdir}
 
 mv -f $RPM_BUILD_ROOT%{_docdir}/gtkmm-2.0/docs installed-docs
-install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 mv -f $RPM_BUILD_ROOT%{_docdir}/gtkmm-2.0/examples/* \
 	$RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
@@ -221,14 +221,14 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%post	-n %{name}-atk -p /sbin/ldconfig
-%postun	-n %{name}-atk -p /sbin/ldconfig
+%post	atk -p /sbin/ldconfig
+%postun	atk -p /sbin/ldconfig
 
-%post	-n %{name}-glib -p /sbin/ldconfig
-%postun	-n %{name}-glib -p /sbin/ldconfig
+%post	glib -p /sbin/ldconfig
+%postun	glib -p /sbin/ldconfig
 
-%post	-n %{name}-pango -p /sbin/ldconfig
-%postun	-n %{name}-pango -p /sbin/ldconfig
+%post	pango -p /sbin/ldconfig
+%postun	pango -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
