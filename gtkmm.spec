@@ -7,7 +7,7 @@ License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/gtkmm/%{name}-%{version}.tar.gz
 URL:		http://gtkmm.sourceforge.net/
-BuildRequires;	automake
+BuildRequires:	automake
 BuildRequires:	gtk+-devel
 BuildRequires:	imlib-devel
 BuildRequires:	libsigc++1-devel >= 1.0.4
