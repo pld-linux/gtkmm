@@ -11,7 +11,7 @@ Source0:	ftp://download.sourceforge.net/pub/sourceforge/gtkmm/%{name}-%{version}
 URL:		http://gtkmm.sourceforge.net/
 Requires:	cpp
 BuildRequires:	esound-devel
-%{!?bcond_off_gnome:BuildRequires:	gnome-libs-devel}
+%{!?_without_gnome:BuildRequires:	gnome-libs-devel}
 BuildRequires:	gtk+-devel
 BuildRequires:	imlib-devel
 BuildRequires:	libstdc++-devel
@@ -76,7 +76,7 @@ autoconf
 CXXFLAGS="%{rpmcflags} -fno-exceptions"
 %configure \
 	--enable-static=yes \
-	%{?bcond_off_gnome:--without-gnome}
+	%{?_without_gnome:--without-gnome}
 
 %{__make}
 
