@@ -73,7 +73,7 @@ Biblioteki statyczne GTK-- i GDK--.
 
 %build
 autoconf
-CXXFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g} -fno-exceptions"
+CXXFLAGS="%{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS} -fno-exceptions"
 %configure \
 	--enable-static=yes
 %{__make}
