@@ -2,7 +2,7 @@
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK
 Name:		gtkmm
-Version:	1.3.26
+Version:	2.2.0	
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
@@ -98,9 +98,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 
-%dir %{_libdir}/gtkmm-*
+%dir %{_libdir}/gtkmm-2.0
+%dir %{_libdir}/gtkmm-2.0/proc
+
 %{_libdir}/gtkmm-*/include
-%dir %{_libdir}/gtkmm-*/proc
 %{_libdir}/gtkmm-*/proc/m4
 %{_libdir}/gtkmm-*/proc/pm
 %attr(755,root,root) %{_libdir}/gtkmm-*/proc/gtkmmproc
@@ -108,6 +109,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_pkgconfigdir}/*.pc
 %{_includedir}/*
+%{_defaultdocdir}/gtkmm-2.0/*
 
 %files static
 %defattr(644,root,root,755)
