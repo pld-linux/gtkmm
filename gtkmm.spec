@@ -8,6 +8,7 @@ License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.4/%{name}-%{version}.tar.bz2
 # Source0-md5:	00df8eb3d562f52e26494d90cbada1e4
+Patch0:		%{name}-link.patch
 URL:		http://gtkmm.sourceforge.net/
 BuildRequires:	atk-devel >= 1.6.0
 BuildRequires:	autoconf >= 2.50
@@ -161,6 +162,7 @@ Interfejs C++ dla biblioteki pango - wersja statyczna.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
