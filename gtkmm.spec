@@ -2,19 +2,17 @@ Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK
 Name:		gtkmm
 Version:	1.2.9
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/gtkmm/%{name}-%{version}.tar.gz
 URL:		http://gtkmm.sourceforge.net/
-Requires:	cpp
-BuildRequires:	esound-devel
-%{!?_without_gnome:BuildRequires:	gnome-libs-devel}
 BuildRequires:	gtk+-devel
 BuildRequires:	imlib-devel
+BuildRequires:	libsigc++1-devel >= 1.0.4
 BuildRequires:	libstdc++-devel
 BuildRequires:	zlib-devel
-BuildRequires:	libsigc++-devel >= 1.0.4
+Requires:	cpp
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	Gtk--
 
@@ -29,7 +27,7 @@ extensible using inheritance and over 110 classes that can be freely
 combined to quickly create complex user interfaces.
 
 %description -l pl
-GTK-- jest wrapperem C++ dla Gimp ToolKit (GTK). GTK jest bibliotek±
+GTK-- jest wrapperem C++ dla Gimp ToolKit (GTK+). GTK jest bibliotek±
 s³u¿±c± do tworzenia graficznych interfejsów. W pakiecie znajduje siê
 tak¿e biblioteka GDK-- - wrapper C++ dla GDK (General Drawing Kit).
 
@@ -40,7 +38,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
 Requires:	gtk+-devel
 Requires:	libstdc++-devel
-Requires:	libsigc++-devel
+Requires:	libsigc++1-devel
 Obsoletes:	Gtk---devel
 
 %description devel
@@ -69,8 +67,7 @@ Biblioteki statyczne GTK-- i GDK--.
 CXXFLAGS="%{rpmcflags} -fno-exceptions"
 cp -f /usr/share/automake/config.sub scripts/
 %configure2_13 \
-	--enable-static=yes \
-	%{?_without_gnome:--without-gnome}
+	--enable-static=yes
 
 %{__make}
 
