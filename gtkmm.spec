@@ -7,6 +7,7 @@ Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.2/gtkmm-%{version}.tar.bz2
+# Source0-md5:	7cf0914a7cc677554d756ab481e72990
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-link.patch
 Patch2:		%{name}-acfix.patch
