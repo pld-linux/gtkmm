@@ -1,7 +1,7 @@
 %include        /usr/lib/rpm/macros.perl
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK
-Name:		gtkmm2
+Name:		gtkmm
 Version:	1.3.26
 Release:	1
 License:	LGPL
