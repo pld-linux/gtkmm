@@ -9,17 +9,16 @@ Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.2/gtkmm-%{version}.tar.bz2
 # Source0-md5:	4db1d133eda1e9f507d023f0e5042809
 Patch0:		%{name}-link.patch
-Patch1:		%{name}-gcc33.patch
 URL:		http://gtkmm.sourceforge.net/
 BuildRequires:	atk-devel >= 1.2.0
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	esound-devel
 BuildRequires:	glib2-devel >= 2.2.1
 BuildRequires:	gtk+2-devel >= 2.2.1
 BuildRequires:	libsigc++-devel >= 1.2.1
-BuildRequires:	libstdc++-devel
-BuildRequires:	libtool
+BuildRequires:	libstdc++-devel >= 5:3.3.1
+BuildRequires:	libtool >= 2:1.4d-3
 BuildRequires:	pango-devel >= 1.2.1
 BuildRequires:	perl >= 5.6
 BuildRequires:	pkgconfig
@@ -51,16 +50,25 @@ Summary(pl):	Pliki nag³ówkowe GTK-- i GDK--, dokumentacja dla programistów
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
 Requires:	%{name}-atk-devel = %{version}
-Requires:	%{name}-glib-devel = %{version}
 Requires:	%{name}-pango-devel = %{version}
 Requires:	gtk+2-devel >= 2.2.1
-Requires:	libsigc++-devel >= 1.2.1
 
 %description devel
 Header files and development documentation for GTK-- library.
 
 %description devel -l pl
 Pliki nag³ówkowe i dokumentacja dla programistów do biblioteki GTK--.
+
+%package doc
+Summary:	Reference documentation and examples for GTK-- and GDK--
+Summary(pl):	Szczegó³owa dokumentacja i przyk³ady dla GTK-- i GDK--
+Group:		Documentation
+
+%description doc
+Reference documentation and examples for GTK-- and GDK--.
+
+%description doc -l pl
+Szczegó³owa dokumentacja i przyk³ady dla GTK-- i GDK--.
 
 %package static
 Summary:	GTK-- and GDK-- static libraries
@@ -130,6 +138,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name}-glib-devel = %{version}
 Requires:	glib2-devel >= 2.2.1
 Requires:	libsigc++-devel >= 1.2.1
+Requires:	libstdc++-devel >= 5:3.3.1
 
 %description glib-devel
 A C++ interface for glib library - header files.
@@ -190,7 +199,6 @@ Interfejs C++ dla biblioteki pango - wersja statyczna.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__libtoolize}
@@ -237,7 +245,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc installed-docs/*
 %attr(755,root,root) %{_libdir}/libg[dt]kmm*.so
 %{_libdir}/libg[dt]kmm*.la
 
@@ -250,6 +257,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_includedir}/gtkmm-2.0/g[dt]kmm*
 %{_pkgconfigdir}/g[dt]kmm*.pc
+
+%files doc
+%defattr(644,root,root,755)
+%doc installed-docs/*
 %{_examplesdir}/%{name}-%{version}
 
 %files static
