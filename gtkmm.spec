@@ -35,27 +35,12 @@ GTK-- jest wrapperem C++ dla Gimp ToolKit (GTK). GTK jest bibliotek± s³u¿±c±
 do tworzenia graficznych interfejsów. W pakiecie znajduje siê tak¿e
 biblioteka GDK-- - wrapper C++ dla GDK (General Drawing Kit).
 
-%package gnome
-Summary:	GTK-- GNOME library
-Summary(pl):	Biblioteka GTK-- z wsparciem do GNOME
-Group:		X11/GNOME/Libraries
-Group(pl):	X11/GNOME/Biblioteki
-Requires:	%{name} = %{version}
-Obsoletes:	Gtk---gnome
-
-%description gnome
-GTK-- GNOME library.
-
-%description -l pl gnome
-Biblioteka GTK-- z wsparciem do GNOME.
-
 %package devel
 Summary:	GTK-- and GDK-- header files, development documentation
 Summary(pl):	Pliki nag³ówkowe GTK-- i GDK--, dokumentacja dla programistów
 Group:		X11/Development/Libraries
 Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name} = %{version}
-Requires:	%{name}-gnome = %{version}
 Obsoletes:	Gtk---devel
 
 %description devel
@@ -115,9 +100,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgdkmm*.so.*.*
 %attr(755,root,root) %{_libdir}/libgtkmm*.so.*.*
-
-%files gnome
-%attr(755,root,root) %{_libdir}/libgnomemm.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
