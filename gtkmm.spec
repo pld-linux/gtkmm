@@ -2,20 +2,21 @@
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK+
 Name:		gtkmm
-Version:	2.2.9
+Version:	2.2.10
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.2/gtkmm-%{version}.tar.bz2
-# Source0-md5:	c612c008f7d8930b03d36418b6d6ba82
+# Source0-md5:	30d62d2ea8f3fbaf0a2a2d2f8373bec2
 Patch0:		%{name}-link.patch
+Patch1:		%{name}-ac.patch
 URL:		http://gtkmm.sourceforge.net/
 BuildRequires:	atk-devel >= 1.2.0
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	esound-devel
 BuildRequires:	glib2-devel >= 2.2.1
-BuildRequires:	gtk+2-devel >= 2.2.1
+BuildRequires:	gtk+2-devel >= 1:2.2.1
 BuildRequires:	libsigc++12-devel >= 1.2.1
 BuildRequires:	libstdc++-devel >= 5:3.3.1
 BuildRequires:	libtool >= 2:1.4d-3
@@ -51,7 +52,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	%{name}-atk-devel = %{version}-%{release}
 Requires:	%{name}-pango-devel = %{version}-%{release}
-Requires:	gtk+2-devel >= 2.2.1
+Requires:	gtk+2-devel >= 1:2.2.1
 
 %description devel
 Header files and development documentation for GTK-- library.
@@ -199,6 +200,10 @@ Interfejs C++ dla biblioteki pango - wersja statyczna.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+
+# GLIBMM_PROG_CXX_SUN exists only in aclocal.m4
+tail -n +6979 aclocal.m4 | head -n 15 > scripts/cxx-sun.m4
 
 %build
 %{__libtoolize}
