@@ -2,11 +2,16 @@ Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK
 Name:		gtkmm
 Version:	1.2.5
-Release:	3
+Release:	4
 License:	LGPL
 Group:		X11/Libraries
 Group(de):	X11/Libraries
+Group(es):	X11/Bibliotecas
+Group(fr):	X11/Librairies
 Group(pl):	X11/Biblioteki
+Group(pt_BR):	X11/Bibliotecas
+Group(ru):	X11/Библиотеки
+Group(uk):	X11/Б╕бл╕отеки
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/gtkmm/%{name}-%{version}.tar.gz
 URL:		http://gtkmm.sourceforge.net/
 Requires:	cpp
@@ -16,7 +21,7 @@ BuildRequires:	gtk+-devel
 BuildRequires:	imlib-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	zlib-devel
-BuildRequires:	libsigc++-devel >= 0.8.5
+BuildRequires:	libsigc++-devel >= 1.0.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	Gtk--
 
@@ -40,7 +45,12 @@ Summary:	GTK-- and GDK-- header files, development documentation
 Summary(pl):	Pliki nagЁСwkowe GTK-- i GDK--, dokumentacja dla programistСw
 Group:		X11/Development/Libraries
 Group(de):	X11/Entwicklung/Libraries
+Group(es):	X11/Desarrollo/Bibliotecas
+Group(fr):	X11/Development/Librairies
 Group(pl):	X11/Programowanie/Biblioteki
+Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
+Group(ru):	X11/Разработка/Библиотеки
+Group(uk):	X11/Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 Requires:	gtk+-devel
 Requires:	libstdc++-devel
@@ -58,7 +68,12 @@ Summary:	GTK-- and GDK-- static libraries
 Summary(pl):	Biblioteki statyczne GTK-- i GDK--
 Group:		X11/Development/Libraries
 Group(de):	X11/Entwicklung/Libraries
+Group(es):	X11/Desarrollo/Bibliotecas
+Group(fr):	X11/Development/Librairies
 Group(pl):	X11/Programowanie/Biblioteki
+Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
+Group(ru):	X11/Разработка/Библиотеки
+Group(uk):	X11/Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 Obsoletes:	Gtk---static
 
@@ -91,11 +106,11 @@ cp -dpr examples/* $RPM_BUILD_ROOT/usr/src/examples/%{name}
 
 gzip -9nf README ChangeLog AUTHORS NEWS
 
-%post	-p /sbin/ldconfig
-%postun	-p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
