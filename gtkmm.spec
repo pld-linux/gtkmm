@@ -2,12 +2,12 @@
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK+
 Name:		gtkmm
-Version:	2.2.8
+Version:	2.2.9
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.2/gtkmm-%{version}.tar.bz2
-# Source0-md5:	fa9aabae3a84d3aaee53f5ff96a46cdc
+# Source0-md5:	c612c008f7d8930b03d36418b6d6ba82
 Patch0:		%{name}-link.patch
 URL:		http://gtkmm.sourceforge.net/
 BuildRequires:	atk-devel >= 1.2.0
@@ -24,9 +24,9 @@ BuildRequires:	perl >= 5.6
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-perlprov >= 3.0.3-16
 BuildRequires:	zlib-devel
-Requires:	%{name}-atk = %{version}
-Requires:	%{name}-glib = %{version}
-Requires:	%{name}-pango = %{version}
+Requires:	%{name}-atk = %{version}-%{release}
+Requires:	%{name}-glib = %{version}-%{release}
+Requires:	%{name}-pango = %{version}-%{release}
 Requires:	cpp
 Obsoletes:	Gtk--
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -48,9 +48,9 @@ tak¿e biblioteka GDK-- - wrapper C++ dla GDK (General Drawing Kit).
 Summary:	GTK-- and GDK-- header files, development documentation
 Summary(pl):	Pliki nag³ówkowe GTK-- i GDK--, dokumentacja dla programistów
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
-Requires:	%{name}-atk-devel = %{version}
-Requires:	%{name}-pango-devel = %{version}
+Requires:	%{name} = %{version}-%{release}
+Requires:	%{name}-atk-devel = %{version}-%{release}
+Requires:	%{name}-pango-devel = %{version}-%{release}
 Requires:	gtk+2-devel >= 2.2.1
 
 %description devel
@@ -74,7 +74,7 @@ Szczegó³owa dokumentacja i przyk³ady dla GTK-- i GDK--.
 Summary:	GTK-- and GDK-- static libraries
 Summary(pl):	Biblioteki statyczne GTK-- i GDK--
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 GTK-- and GDK-- static libraries.
@@ -86,7 +86,7 @@ Biblioteki statyczne GTK-- i GDK--.
 Summary:	A C++ interface for atk library
 Summary(pl):	Interfejs C++ dla biblioteki atk
 Group:		X11/Development/Libraries
-Requires:	%{name}-glib = %{version}
+Requires:	%{name}-glib = %{version}-%{release}
 
 %description atk
 A C++ interface for atk library.
@@ -98,8 +98,8 @@ Interfejs C++ dla biblioteki atk.
 Summary:	A C++ interface for atk library - header files
 Summary(pl):	Interfejs C++ dla biblioteki atk - pliki nag³ówkowe
 Group:		X11/Development/Libraries
-Requires:	%{name}-atk = %{version}
-Requires:	%{name}-glib-devel = %{version}
+Requires:	%{name}-atk = %{version}-%{release}
+Requires:	%{name}-glib-devel = %{version}-%{release}
 Requires:	atk-devel >= 1.2.0
 
 %description atk-devel
@@ -112,7 +112,7 @@ Interfejs C++ dla biblioteki atk - pliki nag³ówkowe.
 Summary:	A C++ interface for atk library - static version
 Summary(pl):	Interfejs C++ dla biblioteki atk - wersja statyczna
 Group:		X11/Development/Libraries
-Requires:	%{name}-atk-devel = %{version}
+Requires:	%{name}-atk-devel = %{version}-%{release}
 
 %description atk-static
 A C++ interface for atk library - static version.
@@ -135,7 +135,7 @@ Interfejs C++ dla biblioteki glib.
 Summary:	A C++ interface for glib library - header files
 Summary(pl):	Interfejs C++ dla biblioteki glib - pliki nag³ówkowe
 Group:		X11/Development/Libraries
-Requires:	%{name}-glib = %{version}
+Requires:	%{name}-glib = %{version}-%{release}
 Requires:	glib2-devel >= 2.2.1
 Requires:	libsigc++-devel >= 1.2.1
 Requires:	libstdc++-devel >= 5:3.3.1
@@ -150,7 +150,7 @@ Interfejs C++ dla biblioteki glib - pliki nag³ówkowe.
 Summary:	A C++ interface for glib library - static version
 Summary(pl):	Interfejs C++ dla biblioteki glib - wersja statyczna
 Group:		X11/Development/Libraries
-Requires:	%{name}-glib-devel = %{version}
+Requires:	%{name}-glib-devel = %{version}-%{release}
 
 %description glib-static
 A C++ interface for glib library - static version.
@@ -162,7 +162,7 @@ Interfejs C++ dla biblioteki glib - wersja statyczna.
 Summary:	A C++ interface for pango library
 Summary(pl):	Interfejs C++ dla biblioteki pango
 Group:		X11/Development/Libraries
-Requires:	%{name}-glib = %{version}
+Requires:	%{name}-glib = %{version}-%{release}
 
 %description pango
 A C++ interface for pango library.
@@ -174,8 +174,8 @@ Interfejs C++ dla biblioteki pango.
 Summary:	A C++ interface for pango library - header files
 Summary(pl):	Interfejs C++ dla biblioteki pango - pliki nag³ówkowe
 Group:		X11/Development/Libraries
-Requires:	%{name}-glib-devel = %{version}
-Requires:	%{name}-pango = %{version}
+Requires:	%{name}-glib-devel = %{version}-%{release}
+Requires:	%{name}-pango = %{version}-%{release}
 Requires:	pango-devel >= 1.2.1
 
 %description pango-devel
@@ -188,7 +188,7 @@ Interfejs C++ dla biblioteki pango - pliki nag³ówkowe.
 Summary:	A C++ interface for pango library - static version
 Summary(pl):	Interfejs C++ dla biblioteki pango - wersja statyczna
 Group:		X11/Development/Libraries
-Requires:	%{name}-pango-devel = %{version}
+Requires:	%{name}-pango-devel = %{version}-%{release}
 
 %description pango-static
 A C++ interface for pango library - static version.
