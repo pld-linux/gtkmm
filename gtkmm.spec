@@ -183,7 +183,6 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 	DESTDIR=$RPM_BUILD_ROOT \
 	pkgconfigdir=%{_pkgconfigdir}
 
-mv -f $RPM_BUILD_ROOT%{_docdir}/gtkmm-2.4/docs installed-docs
 mv -f $RPM_BUILD_ROOT%{_docdir}/gtkmm-2.4/{examples,tests} \
 	$RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
@@ -214,7 +213,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files doc
 %defattr(644,root,root,755)
-%doc installed-docs/*
+%doc %{_docdir}/gtkmm-2.4
 %{_examplesdir}/%{name}-%{version}
 %doc %{_datadir}/devhelp/books/gtkmm-2.4
 
