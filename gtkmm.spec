@@ -6,7 +6,7 @@ Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Group(pl):	X11/Biblioteki
-Source0:	http://download.sourceforge.net/gtkmm/%{name}-%{version}.tar.gz
+Source0:	ftp://download.sourceforge.net/pub/sourceforge/gtkmm/%{name}-%{version}.tar.gz
 URL:		http://gtkmm.sourceforge.net/
 Requires:	cpp
 BuildRequires:	esound-devel
