@@ -1,23 +1,32 @@
+%include        /usr/lib/rpm/macros.perl
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK
-Name:		gtkmm
-Version:	1.2.10
+Name:		gtkmm2
+Version:	1.3.26
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	ftp://download.sourceforge.net/pub/sourceforge/gtkmm/%{name}-%{version}.tar.gz
+Source0:	http://prdownloads.sourceforge.net/gtkmm/gtkmm-%{version}.tar.gz
 URL:		http://gtkmm.sourceforge.net/
-BuildRequires:	automake
-BuildRequires:	gtk+-devel
+Requires:	cpp
+BuildRequires:	esound-devel
+BuildRequires:	atk-devel >= 1.0.0
+BuildRequires:	pango-devel >= 1.0.0
+BuildRequires:	glib2-devel >= 2.0.0
+BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	imlib-devel
-BuildRequires:	libsigc++1-devel >= 1.0.4
 BuildRequires:	libstdc++-devel
 BuildRequires:	zlib-devel
-Requires:	cpp
+BuildRequires:	libsigc++-devel >= 1.2.1
+BuildRequires:	perl
+BuildRequires:	autoconf
+BuildRequires:	rpm-perlprov >= 3.0.3-16
+BuildRequires:	perl >= 5.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	Gtk--
 
 %define		_prefix		/usr/X11R6
+%define		_mandir		%{_prefix}/man
 
 %description
 This package provides a C++ interface for GTK+ (the Gimp ToolKit) GUI
@@ -28,7 +37,7 @@ extensible using inheritance and over 110 classes that can be freely
 combined to quickly create complex user interfaces.
 
 %description -l pl
-GTK-- jest wrapperem C++ dla Gimp ToolKit (GTK+). GTK jest bibliotek±
+GTK-- jest wrapperem C++ dla Gimp ToolKit (GTK). GTK jest bibliotek±
 s³u¿±c± do tworzenia graficznych interfejsów. W pakiecie znajduje siê
 tak¿e biblioteka GDK-- - wrapper C++ dla GDK (General Drawing Kit).
 
@@ -37,10 +46,9 @@ Summary:	GTK-- and GDK-- header files, development documentation
 Summary(pl):	Pliki nag³ówkowe GTK-- i GDK--, dokumentacja dla programistów
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
-Requires:	gtk+-devel
+Requires:	gtk+2-devel >= 1.3.11
 Requires:	libstdc++-devel
-Requires:	libsigc++1-devel
-Obsoletes:	Gtk---devel
+Requires:	libsigc++-devel >= 1.1.7
 
 %description devel
 Header files and development documentation for GTK-- library.
@@ -53,7 +61,6 @@ Summary:	GTK-- and GDK-- static libraries
 Summary(pl):	Biblioteki statyczne GTK-- i GDK--
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}
-Obsoletes:	Gtk---static
 
 %description static
 GTK-- and GDK-- static libraries.
@@ -62,25 +69,23 @@ GTK-- and GDK-- static libraries.
 Biblioteki statyczne GTK-- i GDK--.
 
 %prep
-%setup -q
+%setup -q -n gtkmm-%{version}
 
 %build
-CXXFLAGS="%{rpmcflags} -fno-exceptions"
-cp -f /usr/share/automake/config.sub scripts/
-%configure2_13 \
+# exceptions and rtti are used in this package --misiek
+%configure \
 	--enable-static=yes
-
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/usr/src/examples/%{name}
+install -d $RPM_BUILD_ROOT/usr/src/examples/%{name}-%{version}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	m4datadir=%{_aclocaldir}
+	pkgconfigdir=%{_pkgconfigdir}
 
-cp -dpr examples/* $RPM_BUILD_ROOT/usr/src/examples/%{name}
+cp -dpr examples/* $RPM_BUILD_ROOT/usr/src/examples/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -90,26 +95,25 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libgdkmm*.so.*.*
-%attr(755,root,root) %{_libdir}/libgtkmm*.so.*.*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
 %doc README ChangeLog AUTHORS NEWS
-%doc /usr/src/examples/%{name}
+%{_examplesdir}/%{name}-%{version}
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
-%attr(755,root,root) %{_bindir}/*
 
+%dir %{_libdir}/gtkmm-*
+%{_libdir}/gtkmm-*/include
+%dir %{_libdir}/gtkmm-*/proc
+%{_libdir}/gtkmm-*/proc/m4
+%{_libdir}/gtkmm-*/proc/pm
+%attr(755,root,root) %{_libdir}/gtkmm-*/proc/gtkmmproc
+%attr(755,root,root) %{_libdir}/gtkmm-*/proc/*.pl
+
+%{_pkgconfigdir}/*.pc
 %{_includedir}/*
-
-%dir %{_libdir}/gtkmm
-%{_libdir}/gtkmm/include
-%dir %{_libdir}/gtkmm/proc
-%{_libdir}/gtkmm/proc/*.m4
-%attr(755,root,root) %{_libdir}/gtkmm/proc/gtkmmproc
-
-%{_aclocaldir}/*
 
 %files static
 %defattr(644,root,root,755)
