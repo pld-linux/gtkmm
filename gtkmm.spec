@@ -19,7 +19,7 @@ BuildRequires:	gtk+2-devel >= 2:2.4.4
 BuildRequires:	libsigc++-devel >= 1:2.0.3
 BuildRequires:	libstdc++-devel >= 5:3.3.1
 BuildRequires:	libtool >= 2:1.4d-3
-BuildRequires:	pango-devel >= 1.4.0
+BuildRequires:	pango-devel >= 1:1.4.0
 BuildRequires:	perl-base >= 5.6
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-perlprov >= 3.0.3-16
@@ -140,7 +140,7 @@ Summary(pl):	Interfejs C++ dla biblioteki pango - pliki nag³ówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-pango = %{version}-%{release}
 Requires:	glibmm-devel >= 2.4.4
-Requires:	pango-devel >= 1.4.0
+Requires:	pango-devel >= 1:1.4.0
 
 %description pango-devel
 A C++ interface for pango library - header files.
