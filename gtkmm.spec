@@ -46,7 +46,7 @@ Obsoletes:	Gtk---devel
 %description devel
 Header files and development documentation for GTK-- library.
 
-%description -l pl devel
+%description devel -l pl
 Pliki nag³ówkowe i dokumentacja dla programistów do biblioteki GTK--.
 
 %package static
@@ -59,7 +59,7 @@ Obsoletes:	Gtk---static
 %description static
 GTK-- and GDK-- static libraries.
 
-%description -l pl static
+%description static -l pl
 Biblioteki statyczne GTK-- i GDK--.
 
 %prep
@@ -99,7 +99,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc *.gz 
+%doc *.gz
 %doc /usr/src/examples/%{name}
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
