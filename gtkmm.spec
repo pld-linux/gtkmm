@@ -2,7 +2,7 @@ Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK
 Name:		gtkmm
 Version:	1.2.5
-Release:	2
+Release:	3
 License:	LGPL
 Group:		X11/Libraries
 Group(de):	X11/Libraries
@@ -72,9 +72,8 @@ Biblioteki statyczne GTK-- i GDK--.
 %setup -q
 
 %build
-autoconf
 CXXFLAGS="%{rpmcflags} -fno-exceptions"
-%configure \
+%configure2_13 \
 	--enable-static=yes \
 	%{?_without_gnome:--without-gnome}
 
