@@ -2,7 +2,7 @@ Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK
 Name:		gtkmm
 Version:	1.2.3
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 Group(de):	X11/Libraries
@@ -71,7 +71,7 @@ Biblioteki statyczne GTK-- i GDK--.
 
 %build
 autoconf
-CXXFLAGS="$RPM_OPT_FLAGS -fno-exceptions"
+CXXFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g} -fno-exceptions"
 %configure \
 	--enable-static=yes
 %{__make}
@@ -85,8 +85,6 @@ install -d $RPM_BUILD_ROOT/usr/src/examples/%{name}
 	m4datadir=%{_aclocaldir}
 
 cp -dpr examples/* $RPM_BUILD_ROOT/usr/src/examples/%{name}
-
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
 
 gzip -9nf README ChangeLog AUTHORS NEWS
 
