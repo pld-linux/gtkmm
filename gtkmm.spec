@@ -2,21 +2,21 @@
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK+
 Name:		gtkmm
-Version:	2.5.5
+Version:	2.5.7
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	80babe692a8b59e62e68af28ea2f3ed1
+# Source0-md5:	e7850165561d9f511e6fe4fd501f0fec
 Patch0:		%{name}-link.patch
 URL:		http://gtkmm.sourceforge.net/
 BuildRequires:	atk-devel >= 1.9.0
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	glibmm-devel >= 2.5.5
+BuildRequires:	glibmm-devel >= 2.5.6
 BuildRequires:	graphviz
 BuildRequires:	gtk+2-devel >= 2:2.6.2
-BuildRequires:	libsigc++-devel >= 1:2.0.9
+BuildRequires:	libsigc++-devel >= 1:2.0.10
 BuildRequires:	libstdc++-devel >= 5:3.3.1
 BuildRequires:	libtool >= 2:1.4d-3
 BuildRequires:	pango-devel >= 1:1.8.0
@@ -26,7 +26,7 @@ BuildRequires:	rpm-perlprov >= 3.0.3-16
 Requires:	%{name}-atk = %{version}-%{release}
 Requires:	%{name}-pango = %{version}-%{release}
 Requires:	cpp
-Requires:	glibmm >= 2.5.5
+Requires:	glibmm >= 2.5.6
 Obsoletes:	Gtk--
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -50,9 +50,9 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	%{name}-atk-devel = %{version}-%{release}
 Requires:	%{name}-pango-devel = %{version}-%{release}
-Requires:	glibmm-devel >= 2.5.5
+Requires:	glibmm-devel >= 2.5.6
 Requires:	gtk+2-devel >= 2:2.6.2
-Requires:	libsigc++-devel >= 1:2.0.9
+Requires:	libsigc++-devel >= 1:2.0.10
 
 %description devel
 Header files and development documentation for GTK-- library.
@@ -88,7 +88,7 @@ Biblioteki statyczne GTK-- i GDK--.
 Summary:	A C++ interface for atk library
 Summary(pl):	Interfejs C++ dla biblioteki atk
 Group:		X11/Development/Libraries
-Requires:	glibmm >= 2.5.5
+Requires:	glibmm >= 2.5.6
 
 %description atk
 A C++ interface for atk library.
@@ -102,7 +102,7 @@ Summary(pl):	Interfejs C++ dla biblioteki atk - pliki nag³ówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-atk = %{version}-%{release}
 Requires:	atk-devel >= 1.9.0
-Requires:	glibmm-devel >= 2.5.5
+Requires:	glibmm-devel >= 2.5.6
 
 %description atk-devel
 A C++ interface for atk library - header files.
@@ -126,7 +126,7 @@ Interfejs C++ dla biblioteki atk - wersja statyczna.
 Summary:	A C++ interface for pango library
 Summary(pl):	Interfejs C++ dla biblioteki pango
 Group:		X11/Development/Libraries
-Requires:	glibmm >= 2.5.5
+Requires:	glibmm >= 2.5.6
 
 %description pango
 A C++ interface for pango library.
@@ -139,7 +139,7 @@ Summary:	A C++ interface for pango library - header files
 Summary(pl):	Interfejs C++ dla biblioteki pango - pliki nag³ówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-pango = %{version}-%{release}
-Requires:	glibmm-devel >= 2.5.5
+Requires:	glibmm-devel >= 2.5.6
 Requires:	pango-devel >= 1:1.8.0
 
 %description pango-devel
