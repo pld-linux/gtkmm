@@ -14,7 +14,6 @@ BuildRequires:	gnome-libs-devel
 BuildRequires:	gtk+-devel
 BuildRequires:	imlib-devel
 BuildRequires:	libstdc++-devel
-BuildRequires:	XFree86-devel
 BuildRequires:	zlib-devel
 BuildRequires:	libsigc++-devel >= 0.8.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
