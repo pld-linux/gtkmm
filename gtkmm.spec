@@ -1,19 +1,22 @@
+# TODO:
+# - /usr/bin/demo unpackaged
+#
 %include	/usr/lib/rpm/macros.perl
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK+
 Name:		gtkmm
-Version:	2.6.0
+Version:	2.6.1
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	d5a64118bbe93d4dddbcb8efcc805754
+# Source0-md5:	f33af11582a9867c8d2c84eb25c37b4d
 Patch0:		%{name}-link.patch
 URL:		http://gtkmm.sourceforge.net/
 BuildRequires:	atk-devel >= 1.9.1
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
-BuildRequires:	glibmm-devel >= 2.6.0
+BuildRequires:	glibmm-devel >= 2.6.1
 BuildRequires:	graphviz
 BuildRequires:	gtk+2-devel >= 2:2.6.4
 BuildRequires:	libsigc++-devel >= 1:2.0.10
@@ -26,7 +29,7 @@ BuildRequires:	rpm-perlprov >= 3.0.3-16
 Requires:	%{name}-atk = %{version}-%{release}
 Requires:	%{name}-pango = %{version}-%{release}
 Requires:	cpp
-Requires:	glibmm >= 2.6.0
+Requires:	glibmm >= 2.6.1
 Obsoletes:	Gtk--
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
