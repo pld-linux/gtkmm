@@ -15,7 +15,7 @@ BuildRequires:	automake
 BuildRequires:	glibmm-devel >= 2.4.0
 BuildRequires:	graphviz
 BuildRequires:	gtk+2-devel >= 2:2.4.0
-BuildRequires:	libsigc++-devel >= 1.9.16
+BuildRequires:	libsigc++-devel >= 1:2.0.0
 BuildRequires:	libstdc++-devel >= 5:3.3.1
 BuildRequires:	libtool >= 2:1.4d-3
 BuildRequires:	pango-devel >= 1.4.0
@@ -51,7 +51,7 @@ Requires:	%{name}-atk-devel = %{version}-%{release}
 Requires:	%{name}-pango-devel = %{version}-%{release}
 Requires:	glibmm-devel >= 2.4.0
 Requires:	gtk+2-devel >= 2:2.4.0
-Requires:	libsigc++-devel >= 1.9.16
+Requires:	libsigc++-devel >= 1:2.0.0
 
 %description devel
 Header files and development documentation for GTK-- library.
