@@ -14,7 +14,6 @@ BuildRequires:	atk-devel >= 1.0.0
 BuildRequires:	pango-devel >= 1.0.0
 BuildRequires:	glib2-devel >= 2.0.0
 BuildRequires:	gtk+2-devel >= 2.0.0
-BuildRequires:	imlib-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	zlib-devel
 BuildRequires:	libsigc++-devel >= 1.2.1
