@@ -15,7 +15,7 @@ BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	glibmm-devel >= 2.5.1
 BuildRequires:	graphviz
-BuildRequires:	gtk+2-devel >= 2:2.5.4
+BuildRequires:	gtk+2-devel >= 2:2.5.5
 BuildRequires:	libsigc++-devel >= 1:2.0.6
 BuildRequires:	libstdc++-devel >= 5:3.3.1
 BuildRequires:	libtool >= 2:1.4d-3
@@ -51,7 +51,7 @@ Requires:	%{name} = %{version}-%{release}
 Requires:	%{name}-atk-devel = %{version}-%{release}
 Requires:	%{name}-pango-devel = %{version}-%{release}
 Requires:	glibmm-devel >= 2.5.1
-Requires:	gtk+2-devel >= 2:2.5.4
+Requires:	gtk+2-devel >= 2:2.5.5
 Requires:	libsigc++-devel >= 1:2.0.6
 
 %description devel
