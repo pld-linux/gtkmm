@@ -16,7 +16,7 @@ BuildRequires:	automake
 BuildRequires:	esound-devel
 BuildRequires:	glib2-devel >= 2.2.1
 BuildRequires:	gtk+2-devel >= 2.2.1
-BuildRequires:	libsigc++-devel >= 1.2.1
+BuildRequires:	libsigc++12-devel >= 1.2.1
 BuildRequires:	libstdc++-devel >= 5:3.3.1
 BuildRequires:	libtool >= 2:1.4d-3
 BuildRequires:	pango-devel >= 1.2.1
@@ -137,7 +137,7 @@ Summary(pl):	Interfejs C++ dla biblioteki glib - pliki nag³ówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-glib = %{version}-%{release}
 Requires:	glib2-devel >= 2.2.1
-Requires:	libsigc++-devel >= 1.2.1
+Requires:	libsigc++12-devel >= 1.2.1
 Requires:	libstdc++-devel >= 5:3.3.1
 
 %description glib-devel
