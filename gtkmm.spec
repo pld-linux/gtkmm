@@ -1,23 +1,24 @@
-%include        /usr/lib/rpm/macros.perl
+%include	/usr/lib/rpm/macros.perl
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK+
 Name:		gtkmm
-Version:	2.3.1
+Version:	2.3.2
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.3/%{name}-%{version}.tar.bz2
-# Source0-md5:	65035eed5971da911e1b665713279f10
+# Source0-md5:	92a461bfc4c55a9dadf368d7b049c3b2
 URL:		http://gtkmm.sourceforge.net/
 BuildRequires:	atk-devel >= 1.5.0
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	glibmm-devel >= 2.3.2
-BuildRequires:	gtk+2-devel >= 2.3.1
+BuildRequires:	glibmm-devel >= 2.3.3
+BuildRequires:	graphviz
+BuildRequires:	gtk+2-devel >= 2.3.2
 BuildRequires:	libsigc++-devel >= 1.2.1
 BuildRequires:	libstdc++-devel >= 5:3.3.1
 BuildRequires:	libtool >= 2:1.4d-3
-BuildRequires:	pango-devel >= 1.3.1
+BuildRequires:	pango-devel >= 1.3.2
 BuildRequires:	perl >= 5.6
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-perlprov >= 3.0.3-16
@@ -47,8 +48,8 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
 Requires:	%{name}-atk-devel = %{version}
 Requires:	%{name}-pango-devel = %{version}
-Requires:	glibmm-devel >= 2.3.2
-Requires:	gtk+2-devel >= 2.3.1
+Requires:	glibmm-devel >= 2.3.3
+Requires:	gtk+2-devel >= 2.3.2
 Requires:	libsigc++-devel >= 1.2.1
 
 %description devel
@@ -98,7 +99,7 @@ Summary(pl):	Interfejs C++ dla biblioteki atk - pliki nag³ówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-atk = %{version}
 Requires:	atk-devel >= 1.5.0
-Requires:	glibmm-devel >= 2.3.2
+Requires:	glibmm-devel >= 2.3.3
 
 %description atk-devel
 A C++ interface for atk library - header files.
@@ -134,8 +135,8 @@ Summary:	A C++ interface for pango library - header files
 Summary(pl):	Interfejs C++ dla biblioteki pango - pliki nag³ówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-pango = %{version}
-Requires:	glibmm-devel >= 2.3.2
-Requires:	pango-devel >= 1.3.1
+Requires:	glibmm-devel >= 2.3.3
+Requires:	pango-devel >= 1.3.2
 
 %description pango-devel
 A C++ interface for pango library - header files.
