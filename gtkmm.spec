@@ -6,24 +6,22 @@ Version:	1.3.26
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://prdownloads.sourceforge.net/gtkmm/gtkmm-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/gtkmm/gtkmm-%{version}.tar.gz
 URL:		http://gtkmm.sourceforge.net/
 Requires:	cpp
-BuildRequires:	esound-devel
 BuildRequires:	atk-devel >= 1.0.0
-BuildRequires:	pango-devel >= 1.0.0
+BuildRequires:	autoconf
+BuildRequires:	esound-devel
 BuildRequires:	glib2-devel >= 2.0.0
 BuildRequires:	gtk+2-devel >= 2.0.0
-BuildRequires:	libstdc++-devel
-BuildRequires:	zlib-devel
 BuildRequires:	libsigc++-devel >= 1.2.1
-BuildRequires:	perl
-BuildRequires:	autoconf
-BuildRequires:	rpm-perlprov >= 3.0.3-16
+BuildRequires:	libstdc++-devel
+BuildRequires:	pango-devel >= 1.0.0
 BuildRequires:	perl >= 5.6
+BuildRequires:	rpm-perlprov >= 3.0.3-16
+BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	Gtk--
-
 
 %description
 This package provides a C++ interface for GTK+ (the Gimp ToolKit) GUI
