@@ -23,16 +23,16 @@ Obsoletes:	Gtk--
 
 %description
 This package provides a C++ interface for GTK+ (the Gimp ToolKit) GUI
-library. The interface provides a convenient interface for C++ programmers
-to create GUIs with GTK+'s flexible object-oriented framework. Features
-include type safe callbacks, widgets that are extensible using inheritance
-and over 110 classes that can be freely combined to quickly create complex
-user interfaces.
+library. The interface provides a convenient interface for C++
+programmers to create GUIs with GTK+'s flexible object-oriented
+framework. Features include type safe callbacks, widgets that are
+extensible using inheritance and over 110 classes that can be freely
+combined to quickly create complex user interfaces.
 
 %description -l pl
-GTK-- jest wrapperem C++ dla Gimp ToolKit (GTK). GTK jest bibliotek± s³u¿±c±
-do tworzenia graficznych interfejsów. W pakiecie znajduje siê tak¿e
-biblioteka GDK-- - wrapper C++ dla GDK (General Drawing Kit).
+GTK-- jest wrapperem C++ dla Gimp ToolKit (GTK). GTK jest bibliotek±
+s³u¿±c± do tworzenia graficznych interfejsów. W pakiecie znajduje siê
+tak¿e biblioteka GDK-- - wrapper C++ dla GDK (General Drawing Kit).
 
 %package devel
 Summary:	GTK-- and GDK-- header files, development documentation
@@ -120,4 +120,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_aclocaldir}/*
 
 %files static
-%attr(644,root,root) %{_libdir}/lib*.a
+%defattr(644,root,root,755)
+%{_libdir}/lib*.a
