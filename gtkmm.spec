@@ -135,7 +135,7 @@ Interfejs C++ dla biblioteki glib.
 Summary:	A C++ interface for glib library - header files
 Summary(pl):	Interfejs C++ dla biblioteki glib - pliki nag³ówkowe
 Group:		X11/Development/Libraries
-Requires:	%{name}-glib-devel = %{version}
+Requires:	%{name}-glib = %{version}
 Requires:	glib2-devel >= 2.2.1
 Requires:	libsigc++-devel >= 1.2.1
 Requires:	libstdc++-devel >= 5:3.3.1
