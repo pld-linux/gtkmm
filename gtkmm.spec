@@ -41,6 +41,7 @@ Summary(pl):	Pliki nag³ówkowe GTK-- i GDK--, dokumentacja dla programistów
 Group:		X11/Development/Libraries
 Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name} = %{version}
+Requires:	gtk+-devel
 Obsoletes:	Gtk---devel
 
 %description devel
