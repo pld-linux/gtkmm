@@ -44,6 +44,7 @@ Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 Requires:	gtk+-devel
 Requires:	libstdc++-devel
+Requires:	libsigc++-devel
 Obsoletes:	Gtk---devel
 
 %description devel
