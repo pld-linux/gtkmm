@@ -1,14 +1,13 @@
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK
-Name:		Gtk--
-Version:	1.0.3
+Name:		gtkmm
+Version:	1.1.8
 Release:	1
+License:	LGPL
 Group:		X11/Libraries
 Group(pl):	X11/Biblioteki
-Copyright:	LGPL
-Vendor:		PLD
-Source:		http://lazy.ton.tut.fi/gtk--/Gtk---%{version}.tar.gz
-URL:		http://lazy.ton.tut.fi/terop/iki/gtk/gtk--.html
+Source0:	http://download.sourceforge.net/gtkmm/%{name}-%{version}.tar.gz
+URL:		http://gtkmm.sourceforge.net/
 Requires:	cpp
 BuildRequires:	esound-devel
 BuildRequires:	gnome-libs-devel
@@ -17,11 +16,11 @@ BuildRequires:	imlib-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	zlib-devel
+BuildRequires:	libsigc++-devel >= 0.8.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	Gtk--
 
 %define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
-%define		_datadir	/usr/share
 
 %description
 This package provides a C++ interface for GTK+ (the Gimp ToolKit) GUI
@@ -42,6 +41,7 @@ Summary(pl):	Biblioteka GTK-- z wsparciem do GNOME
 Group:		X11/GNOME/Libraries
 Group(pl):	X11/GNOME/Biblioteki
 Requires:	%{name} = %{version}
+Obsoletes:	Gtk---gnome
 
 %description gnome
 GTK-- GNOME library.
@@ -56,6 +56,7 @@ Group:		X11/Development/Libraries
 Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 Requires:	%{name}-gnome = %{version}
+Obsoletes:	Gtk---devel
 
 %description devel
 Header files and development documentation for GTK-- library.
@@ -69,6 +70,7 @@ Summary(pl):	Biblioteki statyczne GTK-- i GDK--
 Group:		X11/Development/Libraries
 Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
+Obsoletes:	Gtk---static
 
 %description static
 GTK-- and GDK-- static libraries.
@@ -83,26 +85,25 @@ Biblioteki statyczne GTK-- i GDK--.
 autoconf
 
 LDFLAGS="-s"
-CXXFLAGS="$RPM_OPT_FLAGS -fno-rtti -fno-exceptions"
+CXXFLAGS="$RPM_OPT_FLAGS -fno-exceptions"
 export LDFLAGS CXXFLAGS
 %configure \
-	--prefix=/usr/X11R6 \
-	--enable-static=yes \
-	--oldincludedir=/usr/X11R6/include
+	--enable-static=yes
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/usr/src/examples/%{name}
 
-make install DESTDIR=$RPM_BUILD_ROOT
+make install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	m4datadir=%{_aclocaldir}
 
-cp -dpr examples $RPM_BUILD_ROOT/usr/src/examples/%{name}
+cp -dpr examples/* $RPM_BUILD_ROOT/usr/src/examples/%{name}
 
-strip $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
+strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/* \
-	README ChangeLog AUTHORS NEWS
+gzip -9nf README ChangeLog AUTHORS NEWS
 
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
@@ -112,7 +113,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz 
 %attr(755,root,root) %{_libdir}/libgdkmm*.so.*.*
 %attr(755,root,root) %{_libdir}/libgtkmm*.so.*.*
 
@@ -121,17 +121,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc html/*
+%doc *.gz 
 %doc /usr/src/examples/%{name}
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/*.sh
 
-%{_mandir}/man3/*
 %{_includedir}/*
-%{_libdir}/Gtk--
-%{_datadir}/aclocal/*
+%{_libdir}/gtkmm
+%{_aclocaldir}/*
 
 %files static
 %attr(644,root,root) %{_libdir}/lib*.a
