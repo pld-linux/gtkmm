@@ -2,23 +2,23 @@
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK+
 Name:		gtkmm
-Version:	2.3.4
+Version:	2.3.5
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.3/%{name}-%{version}.tar.bz2
-# Source0-md5:	f4ac45ff3529f2b15c6108d0a1db92e0
+# Source0-md5:	2e3581e6aec600dbaa1d7705e225c170
 URL:		http://gtkmm.sourceforge.net/
-BuildRequires:	atk-devel >= 1.5.3
+BuildRequires:	atk-devel >= 1.5.5
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	glibmm-devel >= 2.3.5
+BuildRequires:	glibmm-devel >= 2.3.6-2
 BuildRequires:	graphviz
-BuildRequires:	gtk+2-devel >= 2.3.2
-BuildRequires:	libsigc++-devel >= 1.9.14
+BuildRequires:	gtk+2-devel >= 2.3.5
+BuildRequires:	libsigc++-devel >= 1.9.15
 BuildRequires:	libstdc++-devel >= 5:3.3.1
 BuildRequires:	libtool >= 2:1.4d-3
-BuildRequires:	pango-devel >= 1.3.2
+BuildRequires:	pango-devel >= 1.3.5
 BuildRequires:	perl >= 5.6
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-perlprov >= 3.0.3-16
@@ -48,9 +48,9 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	%{name}-atk-devel = %{version}-%{release}
 Requires:	%{name}-pango-devel = %{version}-%{release}
-Requires:	glibmm-devel >= 2.3.5
-Requires:	gtk+2-devel >= 2.3.2
-Requires:	libsigc++-devel >= 1.9.14
+Requires:	glibmm-devel >= 2.3.6
+Requires:	gtk+2-devel >= 2.3.5
+Requires:	libsigc++-devel >= 1.9.15
 
 %description devel
 Header files and development documentation for GTK-- library.
@@ -98,8 +98,8 @@ Summary:	A C++ interface for atk library - header files
 Summary(pl):	Interfejs C++ dla biblioteki atk - pliki nag³ówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-atk = %{version}-%{release}
-Requires:	atk-devel >= 1.5.3
-Requires:	glibmm-devel >= 2.3.5
+Requires:	atk-devel >= 1.5.5
+Requires:	glibmm-devel >= 2.3.6
 
 %description atk-devel
 A C++ interface for atk library - header files.
@@ -135,8 +135,8 @@ Summary:	A C++ interface for pango library - header files
 Summary(pl):	Interfejs C++ dla biblioteki pango - pliki nag³ówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-pango = %{version}-%{release}
-Requires:	glibmm-devel >= 2.3.5
-Requires:	pango-devel >= 1.3.2
+Requires:	glibmm-devel >= 2.3.6
+Requires:	pango-devel >= 1.3.5
 
 %description pango-devel
 A C++ interface for pango library - header files.
