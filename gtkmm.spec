@@ -45,9 +45,8 @@ Summary:	GTK-- and GDK-- header files, development documentation
 Summary(pl):	Pliki nag³ówkowe GTK-- i GDK--, dokumentacja dla programistów
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
-Requires:	gtk+2-devel >= 1.3.11
-Requires:	libstdc++-devel
-Requires:	libsigc++-devel >= 1.1.7
+Requires:	gtk+2-devel >= 2.0.6
+Requires:	libsigc++-devel >= 1.2.1
 
 %description devel
 Header files and development documentation for GTK-- library.
