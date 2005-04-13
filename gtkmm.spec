@@ -17,7 +17,6 @@ BuildRequires:	atk-devel >= 1.9.1
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 BuildRequires:	glibmm-devel >= 2.6.1
-BuildRequires:	graphviz
 BuildRequires:	gtk+2-devel >= 2:2.6.4
 BuildRequires:	libsigc++-devel >= 1:2.0.10
 BuildRequires:	libstdc++-devel >= 5:3.3.1
