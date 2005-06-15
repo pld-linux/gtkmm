@@ -1,4 +1,6 @@
+# Conditional build:
 %bcond_without	static_libs	# don't build static libraries
+#
 %include	/usr/lib/rpm/macros.perl
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK+
