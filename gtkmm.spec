@@ -1,4 +1,4 @@
-%bcond_without	static	# don't build static libraries
+%bcond_without	static_libs	# don't build static libraries
 %include	/usr/lib/rpm/macros.perl
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK+
@@ -174,7 +174,7 @@ Interfejs C++ dla biblioteki pango - wersja statyczna.
 %configure \
 	--enable-static=yes \
 	--enable-demos=no \
-	%{!?with_static:--disable-static}
+	%{!?with_static_libs:--disable-static}
 %{__make}
 
 %install
@@ -219,7 +219,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_examplesdir}/%{name}-%{version}
 %doc %{_datadir}/devhelp/books/gtkmm-2.4
 
-%if %{with static}
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libg[dt]kmm*.a
@@ -236,7 +236,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/atkmm*.pc
 %{_includedir}/atkmm-1.6
 
-%if %{with static}
+%if %{with static_libs}
 %files atk-static
 %defattr(644,root,root,755)
 %{_libdir}/libatkmm*.a
@@ -253,7 +253,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/pangomm*.pc
 %{_includedir}/pangomm-1.4
 
-%if %{with static}
+%if %{with static_libs}
 %files pango-static
 %defattr(644,root,root,755)
 %{_libdir}/libpangomm*.a
