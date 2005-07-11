@@ -5,13 +5,12 @@
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK+
 Name:		gtkmm
-Version:	2.6.3
+Version:	2.7.1
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	fc398aab107b5149bf91426022cd821e
-Patch0:		%{name}-link.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.7/%{name}-%{version}.tar.bz2
+# Source0-md5:	69d2a2b9aa0edcbedeae9b9bdd407d45
 URL:		http://gtkmm.sourceforge.net/
 BuildRequires:	atk-devel >= 1.9.1
 BuildRequires:	autoconf >= 2.59
@@ -164,7 +163,6 @@ Interfejs C++ dla biblioteki pango - wersja statyczna.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__libtoolize}
