@@ -1,3 +1,4 @@
+#
 # Conditional build:
 %bcond_without	static_libs	# don't build static libraries
 #
@@ -5,18 +6,17 @@
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK+
 Name:		gtkmm
-Version:	2.6.4
+Version:	2.8.0
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	f71d1c4a89c4f9e054400f12a82dec5f
-Patch0:		%{name}-link.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.8/%{name}-%{version}.tar.bz2
+# Source0-md5:	337027bb21635967fd232fcc6bcb9359
 URL:		http://gtkmm.sourceforge.net/
 BuildRequires:	atk-devel >= 1.9.1
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
-BuildRequires:	glibmm-devel >= 2.6.1
+BuildRequires:	glibmm-devel >= 2.8.0
 BuildRequires:	gtk+2-devel >= 2:2.6.4
 BuildRequires:	libsigc++-devel >= 1:2.0.10
 BuildRequires:	libstdc++-devel >= 5:3.3.1
@@ -28,7 +28,7 @@ BuildRequires:	rpm-perlprov >= 3.0.3-16
 Requires:	%{name}-atk = %{version}-%{release}
 Requires:	%{name}-pango = %{version}-%{release}
 Requires:	cpp
-Requires:	glibmm >= 2.6.1
+Requires:	glibmm >= 2.8.0
 Obsoletes:	Gtk--
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -164,7 +164,6 @@ Interfejs C++ dla biblioteki pango - wersja statyczna.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__libtoolize}
