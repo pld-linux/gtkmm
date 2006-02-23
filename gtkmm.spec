@@ -1,5 +1,6 @@
 #
 # Conditional build:
+%bcond_without	examples	# don't build examples
 %bcond_without	static_libs	# don't build static libraries
 #
 %include	/usr/lib/rpm/macros.perl
@@ -172,6 +173,7 @@ Interfejs C++ dla biblioteki pango - wersja statyczna.
 %{__automake}
 # exceptions and rtti are used in this package --misiek
 %configure \
+	%{!?with_examples:--disable-examples} \
 	--enable-static=yes \
 	--enable-demos=no \
 	%{!?with_static_libs:--disable-static}
@@ -216,7 +218,7 @@ rm -rf $RPM_BUILD_ROOT
 %files doc
 %defattr(644,root,root,755)
 %doc %{_docdir}/gtkmm-2.4
-%{_examplesdir}/%{name}-%{version}
+%{?with_examples:%{_examplesdir}/%{name}-%{version}}
 %doc %{_datadir}/devhelp/books/gtkmm-2.4
 
 %if %{with static_libs}
