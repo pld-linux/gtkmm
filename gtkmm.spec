@@ -1,24 +1,24 @@
 #
 # Conditional build:
+%bcond_without	examples	# don't build examples
 %bcond_without	static_libs	# don't build static libraries
 #
 %include	/usr/lib/rpm/macros.perl
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK+
 Name:		gtkmm
-Version:	2.8.2
+Version:	2.8.5
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	b7efc6a6a257a044d6e4bca97595a653
+# Source0-md5:	630040e17bb491228ae22919188abcf2
 URL:		http://gtkmm.sourceforge.net/
 BuildRequires:	atk-devel >= 1.9.1
 BuildRequires:	autoconf >= 2.59
-BuildRequires:	automake
+BuildRequires:	automake >= 1:1.9
 BuildRequires:	glibmm-devel >= 2.8.0
-BuildRequires:	gtk+2-devel >= 2:2.6.4
-BuildRequires:	libsigc++-devel >= 1:2.0.10
+BuildRequires:	gtk+2-devel >= 2:2.8.0
 BuildRequires:	libstdc++-devel >= 5:3.3.1
 BuildRequires:	libtool >= 2:1.4d-3
 BuildRequires:	pango-devel >= 1:1.8.1
@@ -28,7 +28,7 @@ BuildRequires:	rpm-perlprov >= 3.0.3-16
 Requires:	%{name}-atk = %{version}-%{release}
 Requires:	%{name}-pango = %{version}-%{release}
 Requires:	cpp
-Requires:	glibmm >= 2.8.0
+Requires:	gtk+2 >= 2:2.8.0
 Obsoletes:	Gtk--
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -52,9 +52,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	%{name}-atk-devel = %{version}-%{release}
 Requires:	%{name}-pango-devel = %{version}-%{release}
-Requires:	glibmm-devel >= 2.6.0
-Requires:	gtk+2-devel >= 2:2.6.4
-Requires:	libsigc++-devel >= 1:2.0.10
+Requires:	gtk+2-devel >= 2:2.8.0
 
 %description devel
 Header files and development documentation for GTK-- library.
@@ -90,7 +88,8 @@ Biblioteki statyczne GTK-- i GDK--.
 Summary:	A C++ interface for atk library
 Summary(pl):	Interfejs C++ dla biblioteki atk
 Group:		X11/Development/Libraries
-Requires:	glibmm >= 2.6.0
+Requires:	atk >= 1.9.1
+Requires:	glibmm >= 2.8.0
 
 %description atk
 A C++ interface for atk library.
@@ -104,7 +103,7 @@ Summary(pl):	Interfejs C++ dla biblioteki atk - pliki nag³ówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-atk = %{version}-%{release}
 Requires:	atk-devel >= 1.9.1
-Requires:	glibmm-devel >= 2.6.0
+Requires:	glibmm-devel >= 2.8.0
 
 %description atk-devel
 A C++ interface for atk library - header files.
@@ -128,7 +127,8 @@ Interfejs C++ dla biblioteki atk - wersja statyczna.
 Summary:	A C++ interface for pango library
 Summary(pl):	Interfejs C++ dla biblioteki pango
 Group:		X11/Development/Libraries
-Requires:	glibmm >= 2.6.0
+Requires:	glibmm >= 2.8.0
+Requires:	pango >= 1:1.8.1
 
 %description pango
 A C++ interface for pango library.
@@ -141,7 +141,7 @@ Summary:	A C++ interface for pango library - header files
 Summary(pl):	Interfejs C++ dla biblioteki pango - pliki nag³ówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-pango = %{version}-%{release}
-Requires:	glibmm-devel >= 2.6.0
+Requires:	glibmm-devel >= 2.8.0
 Requires:	pango-devel >= 1:1.8.1
 
 %description pango-devel
@@ -172,9 +172,10 @@ Interfejs C++ dla biblioteki pango - wersja statyczna.
 %{__automake}
 # exceptions and rtti are used in this package --misiek
 %configure \
-	--enable-static=yes \
-	--enable-demos=no \
-	%{!?with_static_libs:--disable-static}
+	--disable-demos \
+	%{!?with_examples:--disable-examples} \
+	%{?with_static_libs:--enable-static}
+
 %{__make}
 
 %install
@@ -216,7 +217,7 @@ rm -rf $RPM_BUILD_ROOT
 %files doc
 %defattr(644,root,root,755)
 %doc %{_docdir}/gtkmm-2.4
-%{_examplesdir}/%{name}-%{version}
+%{?with_examples:%{_examplesdir}/%{name}-%{version}}
 %doc %{_datadir}/devhelp/books/gtkmm-2.4
 
 %if %{with static_libs}
