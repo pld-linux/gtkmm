@@ -7,18 +7,18 @@
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK+
 Name:		gtkmm
-Version:	2.9.7
+Version:	2.9.8
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	2ba6fc9065a89cd752fdc40551314519
+# Source0-md5:	1fc9c1fb5a2ffd41e48634e33b41cfb8
 URL:		http://gtkmm.sourceforge.net/
 BuildRequires:	atk-devel >= 1.12.1
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	cairomm-devel >= 1.1.10
-BuildRequires:	glibmm-devel >= 2.10.4
+BuildRequires:	glibmm-devel >= 2.11.2
 BuildRequires:	gtk+2-devel >= 2:2.10.0
 BuildRequires:	libstdc++-devel >= 5:3.3.1
 BuildRequires:	libtool >= 2:1.4d-3
@@ -89,8 +89,8 @@ Biblioteki statyczne GTK-- i GDK--.
 Summary:	A C++ interface for atk library
 Summary(pl):	Interfejs C++ dla biblioteki atk
 Group:		X11/Development/Libraries
-Requires:	atk >= 1.11.4
-Requires:	glibmm >= 2.10.4
+Requires:	atk >= 1.12.1
+Requires:	glibmm >= 2.11.2
 
 %description atk
 A C++ interface for atk library.
@@ -104,7 +104,7 @@ Summary(pl):	Interfejs C++ dla biblioteki atk - pliki nag³ówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-atk = %{version}-%{release}
 Requires:	atk-devel >= 1.12.1
-Requires:	glibmm-devel >= 2.10.4
+Requires:	glibmm-devel >= 2.11.2
 
 %description atk-devel
 A C++ interface for atk library - header files.
@@ -128,7 +128,8 @@ Interfejs C++ dla biblioteki atk - wersja statyczna.
 Summary:	A C++ interface for pango library
 Summary(pl):	Interfejs C++ dla biblioteki pango
 Group:		X11/Development/Libraries
-Requires:	glibmm >= 2.10.4
+Requires:	cairomm >= 1.1.10
+Requires:	glibmm >= 2.11.2
 Requires:	pango >= 1:1.13.3
 
 %description pango
@@ -142,6 +143,7 @@ Summary:	A C++ interface for pango library - header files
 Summary(pl):	Interfejs C++ dla biblioteki pango - pliki nag³ówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-pango = %{version}-%{release}
+Requires:	cairomm-devel >= 1.1.10
 Requires:	glibmm-devel >= 2.10.4
 Requires:	pango-devel >= 1:1.13.3
 
