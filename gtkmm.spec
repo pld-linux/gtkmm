@@ -7,19 +7,19 @@
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl):	Wrapper C++ dla GTK+
 Name:		gtkmm
-Version:	2.9.10
+Version:	2.10.0
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	d76974706b5de8ae809fc3729260f958
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.10/%{name}-%{version}.tar.bz2
+# Source0-md5:	afdb26edc78060cbbb057df25f0416d3
 URL:		http://gtkmm.sourceforge.net/
 BuildRequires:	atk-devel >= 1.12.1
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
-BuildRequires:	cairomm-devel >= 1.1.10
-BuildRequires:	glibmm-devel >= 2.11.3
-BuildRequires:	gtk+2-devel >= 2:2.10.1
+BuildRequires:	cairomm-devel >= 1.1.12
+BuildRequires:	glibmm-devel >= 2.12.0
+BuildRequires:	gtk+2-devel >= 2:2.10.2
 BuildRequires:	libstdc++-devel >= 5:3.3.1
 BuildRequires:	libtool >= 2:1.4d-3
 BuildRequires:	pango-devel >= 1:1.14.0
@@ -28,8 +28,9 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpm-perlprov >= 3.0.3-16
 Requires:	%{name}-atk = %{version}-%{release}
 Requires:	%{name}-pango = %{version}-%{release}
+Requires:	cairomm >= 1.1.12
 Requires:	cpp
-Requires:	gtk+2 >= 2:2.10.0
+Requires:	gtk+2 >= 2:2.10.2
 Obsoletes:	Gtk--
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -53,7 +54,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	%{name}-atk-devel = %{version}-%{release}
 Requires:	%{name}-pango-devel = %{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.10.1
+Requires:	gtk+2-devel >= 2:2.10.2
 
 %description devel
 Header files and development documentation for GTK-- library.
