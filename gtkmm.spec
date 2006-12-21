@@ -1,3 +1,5 @@
+# TODO
+# - think of eliminating cpp runtime dep, as cpp pulls gcc
 #
 # Conditional build:
 %bcond_without	examples	# don't build examples
