@@ -7,7 +7,7 @@
 #
 %include	/usr/lib/rpm/macros.perl
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
-Summary(pl.UTF-8):   Wrapper C++ dla GTK+
+Summary(pl.UTF-8):	Wrapper C++ dla GTK+
 Name:		gtkmm
 Version:	2.10.7
 Release:	1
@@ -51,7 +51,7 @@ także biblioteka GDK-- - wrapper C++ dla GDK (General Drawing Kit).
 
 %package devel
 Summary:	GTK-- and GDK-- header files, development documentation
-Summary(pl.UTF-8):   Pliki nagłówkowe GTK-- i GDK--, dokumentacja dla programistów
+Summary(pl.UTF-8):	Pliki nagłówkowe GTK-- i GDK--, dokumentacja dla programistów
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	%{name}-atk-devel = %{version}-%{release}
@@ -66,7 +66,7 @@ Pliki nagłówkowe i dokumentacja dla programistów do biblioteki GTK--.
 
 %package doc
 Summary:	Reference documentation and examples for GTK-- and GDK--
-Summary(pl.UTF-8):   Szczegółowa dokumentacja i przykłady dla GTK-- i GDK--
+Summary(pl.UTF-8):	Szczegółowa dokumentacja i przykłady dla GTK-- i GDK--
 Group:		Documentation
 Requires:	devhelp
 
@@ -78,7 +78,7 @@ Szczegółowa dokumentacja i przykłady dla GTK-- i GDK--.
 
 %package static
 Summary:	GTK-- and GDK-- static libraries
-Summary(pl.UTF-8):   Biblioteki statyczne GTK-- i GDK--
+Summary(pl.UTF-8):	Biblioteki statyczne GTK-- i GDK--
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
@@ -90,7 +90,7 @@ Biblioteki statyczne GTK-- i GDK--.
 
 %package atk
 Summary:	A C++ interface for atk library
-Summary(pl.UTF-8):   Interfejs C++ dla biblioteki atk
+Summary(pl.UTF-8):	Interfejs C++ dla biblioteki atk
 Group:		X11/Development/Libraries
 Requires:	atk >= 1:1.12.3
 Requires:	glibmm >= 2.12.5
@@ -103,7 +103,7 @@ Interfejs C++ dla biblioteki atk.
 
 %package atk-devel
 Summary:	A C++ interface for atk library - header files
-Summary(pl.UTF-8):   Interfejs C++ dla biblioteki atk - pliki nagłówkowe
+Summary(pl.UTF-8):	Interfejs C++ dla biblioteki atk - pliki nagłówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-atk = %{version}-%{release}
 Requires:	atk-devel >= 1:1.12.3
@@ -117,7 +117,7 @@ Interfejs C++ dla biblioteki atk - pliki nagłówkowe.
 
 %package atk-static
 Summary:	A C++ interface for atk library - static version
-Summary(pl.UTF-8):   Interfejs C++ dla biblioteki atk - wersja statyczna
+Summary(pl.UTF-8):	Interfejs C++ dla biblioteki atk - wersja statyczna
 Group:		X11/Development/Libraries
 Requires:	%{name}-atk-devel = %{version}-%{release}
 
@@ -129,7 +129,7 @@ Interfejs C++ dla biblioteki atk - wersja statyczna.
 
 %package pango
 Summary:	A C++ interface for pango library
-Summary(pl.UTF-8):   Interfejs C++ dla biblioteki pango
+Summary(pl.UTF-8):	Interfejs C++ dla biblioteki pango
 Group:		X11/Development/Libraries
 Requires:	cairomm >= 1.2.2
 Requires:	glibmm >= 2.12.5
@@ -143,7 +143,7 @@ Interfejs C++ dla biblioteki pango.
 
 %package pango-devel
 Summary:	A C++ interface for pango library - header files
-Summary(pl.UTF-8):   Interfejs C++ dla biblioteki pango - pliki nagłówkowe
+Summary(pl.UTF-8):	Interfejs C++ dla biblioteki pango - pliki nagłówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-pango = %{version}-%{release}
 Requires:	cairomm-devel >= 1.2.2
@@ -158,7 +158,7 @@ Interfejs C++ dla biblioteki pango - pliki nagłówkowe.
 
 %package pango-static
 Summary:	A C++ interface for pango library - static version
-Summary(pl.UTF-8):   Interfejs C++ dla biblioteki pango - wersja statyczna
+Summary(pl.UTF-8):	Interfejs C++ dla biblioteki pango - wersja statyczna
 Group:		X11/Development/Libraries
 Requires:	%{name}-pango-devel = %{version}-%{release}
 
