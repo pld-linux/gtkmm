@@ -9,18 +9,18 @@
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl.UTF-8):	Wrapper C++ dla GTK+
 Name:		gtkmm
-Version:	2.12.0
+Version:	2.12.1
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.12/%{name}-%{version}.tar.bz2
-# Source0-md5:	b7a6adb1c9c7e1b6464b4240a4b7ba19
+# Source0-md5:	b2dbd8c9d69062c51dfd2835faef9cf1
 URL:		http://gtkmm.sourceforge.net/
-BuildRequires:	atk-devel >= 1:1.19.6
+BuildRequires:	atk-devel >= 1:1.20.0
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	cairomm-devel >= 1.4.4
-BuildRequires:	glibmm-devel >= 2.14.0
+BuildRequires:	glibmm-devel >= 2.14.1
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	libstdc++-devel >= 5:3.3.1
 BuildRequires:	libtool >= 2:1.4d-3
@@ -92,8 +92,8 @@ Biblioteki statyczne GTK-- i GDK--.
 Summary:	A C++ interface for atk library
 Summary(pl.UTF-8):	Interfejs C++ dla biblioteki atk
 Group:		X11/Development/Libraries
-Requires:	atk >= 1:1.19.6
-Requires:	glibmm >= 2.14.0
+Requires:	atk >= 1:1.20.0
+Requires:	glibmm >= 2.14.1
 
 %description atk
 A C++ interface for atk library.
@@ -106,8 +106,8 @@ Summary:	A C++ interface for atk library - header files
 Summary(pl.UTF-8):	Interfejs C++ dla biblioteki atk - pliki nagłówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-atk = %{version}-%{release}
-Requires:	atk-devel >= 1:1.19.6
-Requires:	glibmm-devel >= 2.14.0
+Requires:	atk-devel >= 1:1.20.0
+Requires:	glibmm-devel >= 2.14.1
 
 %description atk-devel
 A C++ interface for atk library - header files.
@@ -132,7 +132,7 @@ Summary:	A C++ interface for pango library
 Summary(pl.UTF-8):	Interfejs C++ dla biblioteki pango
 Group:		X11/Development/Libraries
 Requires:	cairomm >= 1.4.4
-Requires:	glibmm >= 2.14.0
+Requires:	glibmm >= 2.14.1
 Requires:	pango >= 1:1.18.1
 
 %description pango
@@ -147,7 +147,7 @@ Summary(pl.UTF-8):	Interfejs C++ dla biblioteki pango - pliki nagłówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-pango = %{version}-%{release}
 Requires:	cairomm-devel >= 1.4.4
-Requires:	glibmm-devel >= 2.14.0
+Requires:	glibmm-devel >= 2.14.1
 Requires:	pango-devel >= 1:1.18.1
 
 %description pango-devel
