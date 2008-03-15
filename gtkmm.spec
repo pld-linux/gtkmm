@@ -9,12 +9,13 @@
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl.UTF-8):	Wrapper C++ dla GTK+
 Name:		gtkmm
-Version:	2.12.3
+Version:	2.12.5
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.12/%{name}-%{version}.tar.bz2
-# Source0-md5:	d7e47028df7867d85372d82d9fb1d8b6
+# Source0-md5:	ca21c054d7f7bbd9c737f22e14bccf82
+Patch0:		%{name}-lt.patch
 URL:		http://gtkmm.sourceforge.net/
 BuildRequires:	atk-devel >= 1:1.20.0
 BuildRequires:	autoconf >= 2.59
@@ -170,13 +171,13 @@ Interfejs C++ dla biblioteki pango - wersja statyczna.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
 %{__aclocal} -I scripts
 %{__autoconf}
 %{__automake}
-# exceptions and rtti are used in this package --misiek
 %configure \
 	--disable-demos \
 	%{!?with_examples:--disable-examples} \
@@ -210,58 +211,69 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog CHANGES NEWS PORTING README
-%attr(755,root,root) %{_libdir}/libg[dt]kmm*.so.*.*
+%attr(755,root,root) %{_libdir}/libgdkmm-2.4.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libgdkmm-2.4.so.1
+%attr(755,root,root) %{_libdir}/libgtkmm-2.4.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libgtkmm-2.4.so.1
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libg[dt]kmm*.so
-%{_libdir}/libg[dt]kmm*.la
-%{_libdir}/g[dt]kmm-2.4
-%{_includedir}/g[dt]kmm-2.4
-%{_pkgconfigdir}/g[dt]kmm*.pc
+%attr(755,root,root) %{_libdir}/libgdkmm-2.4.so
+%attr(755,root,root) %{_libdir}/libgtkmm-2.4.so
+%{_libdir}/libgdkmm-2.4.la
+%{_libdir}/libgtkmm-2.4.la
+%{_libdir}/gdkmm-2.4
+%{_libdir}/gtkmm-2.4
+%{_includedir}/gdkmm-2.4
+%{_includedir}/gtkmm-2.4
+%{_pkgconfigdir}/gdkmm-2.4.pc
+%{_pkgconfigdir}/gtkmm-2.4.pc
 
 %files doc
 %defattr(644,root,root,755)
-%doc %{_docdir}/gtkmm-2.4
+%{_docdir}/gtkmm-2.4
+%{_datadir}/devhelp/books/gtkmm-2.4
 %{?with_examples:%{_examplesdir}/%{name}-%{version}}
-%doc %{_datadir}/devhelp/books/gtkmm-2.4
 
 %if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/libg[dt]kmm*.a
+%{_libdir}/libgdkmm-2.4.a
+%{_libdir}/libgtkmm-2.4.a
 %endif
 
 %files atk
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libatkmm*.so.*.*
+%attr(755,root,root) %{_libdir}/libatkmm-1.6.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libatkmm-1.6.so.1
 
 %files atk-devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libatkmm*.so
-%{_libdir}/libatkmm*.la
-%{_pkgconfigdir}/atkmm*.pc
+%attr(755,root,root) %{_libdir}/libatkmm-1.6.so
+%{_libdir}/libatkmm-1.6.la
+%{_pkgconfigdir}/atkmm-1.6.pc
 %{_includedir}/atkmm-1.6
 
 %if %{with static_libs}
 %files atk-static
 %defattr(644,root,root,755)
-%{_libdir}/libatkmm*.a
+%{_libdir}/libatkmm-1.6.a
 %endif
 
 %files pango
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libpangomm*.so.*.*
+%attr(755,root,root) %{_libdir}/libpangomm-1.4.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libpangomm-1.4.so.1
 
 %files pango-devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libpangomm*.so
-%{_libdir}/libpangomm*.la
-%{_pkgconfigdir}/pangomm*.pc
+%attr(755,root,root) %{_libdir}/libpangomm-1.4.so
+%{_libdir}/libpangomm-1.4.la
+%{_pkgconfigdir}/pangomm-1.4.pc
 %{_includedir}/pangomm-1.4
 
 %if %{with static_libs}
 %files pango-static
 %defattr(644,root,root,755)
-%{_libdir}/libpangomm*.a
+%{_libdir}/libpangomm-1.4.a
 %endif
