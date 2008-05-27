@@ -9,19 +9,19 @@
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl.UTF-8):	Wrapper C++ dla GTK+
 Name:		gtkmm
-Version:	2.12.7
+Version:	2.13.0
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.12/%{name}-%{version}.tar.bz2
-# Source0-md5:	ad199f4a392799134c128deab48fee30
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.13/%{name}-%{version}.tar.bz2
+# Source0-md5:	91fd66156592d6c8410f475df35699bb
 Patch0:		%{name}-lt.patch
 URL:		http://gtkmm.sourceforge.net/
 BuildRequires:	atk-devel >= 1:1.20.0
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	cairomm-devel >= 1.4.4
-BuildRequires:	glibmm-devel >= 2.14.1
+BuildRequires:	glibmm-devel >= 2.16.2
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	libstdc++-devel >= 5:3.3.1
 BuildRequires:	libtool >= 2:1.4d-3
@@ -193,8 +193,8 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 	DESTDIR=$RPM_BUILD_ROOT \
 	pkgconfigdir=%{_pkgconfigdir}
 
-mv -f $RPM_BUILD_ROOT%{_docdir}/gtkmm-2.4/{examples,tests} \
-	$RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+#mv -f $RPM_BUILD_ROOT%{_docdir}/gtkmm-2.4/{examples,tests} \
+#	$RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
