@@ -5,19 +5,19 @@
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl.UTF-8):	Wrapper C++ dla GTK+
 Name:		gtkmm
-Version:	2.14.3
+Version:	2.16.0
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	10039f35d7f815d47f926a13cefe65d6
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.16/%{name}-%{version}.tar.bz2
+# Source0-md5:	a82e3b5b93008421ff67df16d1e51ec2
 URL:		http://www.gtkmm.org/
 BuildRequires:	atk-devel >= 1:1.24.0
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	cairomm-devel >= 1.6.3
 BuildRequires:	glibmm-devel >= 2.18.0
-BuildRequires:	gtk+2-devel >= 2:2.14.0
+BuildRequires:	gtk+2-devel >= 2:2.16.0
 BuildRequires:	libstdc++-devel >= 5:3.3.1
 BuildRequires:	libtool >= 2:1.4d-3
 BuildRequires:	pangomm-devel >= 2.14.0
@@ -26,7 +26,7 @@ BuildRequires:	pkgconfig
 Requires:	%{name}-atk = %{version}-%{release}
 Requires:	cairomm >= 1.6.3
 Requires:	glibmm >= 2.18.0
-Requires:	gtk+2 >= 2:2.14.0
+Requires:	gtk+2 >= 2:2.16.0
 Requires:	pangomm >= 2.14.0
 Obsoletes:	Gtk--
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -51,7 +51,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	%{name}-atk-devel = %{version}-%{release}
 Requires:	glibmm-devel >= 2.18.0
-Requires:	gtk+2-devel >= 2:2.14.0
+Requires:	gtk+2-devel >= 2:2.16.0
 Requires:	pangomm-devel >= 2.14.0
 
 %description devel
