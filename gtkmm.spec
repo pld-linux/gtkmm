@@ -5,29 +5,31 @@
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl.UTF-8):	Wrapper C++ dla GTK+
 Name:		gtkmm
-Version:	2.16.0
-Release:	2
+Version:	2.18.2
+Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	a82e3b5b93008421ff67df16d1e51ec2
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.18/%{name}-%{version}.tar.bz2
+# Source0-md5:	3e43e9eef1da8988a76a2815d6b31c91
 URL:		http://www.gtkmm.org/
 BuildRequires:	atk-devel >= 1:1.24.0
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	cairomm-devel >= 1.6.3
-BuildRequires:	glibmm-devel >= 2.18.0
-BuildRequires:	gtk+2-devel >= 2:2.16.0
+BuildRequires:	glibmm-devel >= 2.22.0
+BuildRequires:	gtk+2-devel >= 2:2.18.0
+BuildRequires:	libsigc++-devel
 BuildRequires:	libstdc++-devel >= 5:3.3.1
 BuildRequires:	libtool >= 2:1.4d-3
-BuildRequires:	pangomm-devel >= 2.14.0
+BuildRequires:	mm-common >= 0.8
+BuildRequires:	pangomm-devel >= 2.26.0
 BuildRequires:	perl-base >= 1:5.6.0
 BuildRequires:	pkgconfig
 Requires:	%{name}-atk = %{version}-%{release}
 Requires:	cairomm >= 1.6.3
-Requires:	glibmm >= 2.18.0
-Requires:	gtk+2 >= 2:2.16.0
-Requires:	pangomm >= 2.14.0
+Requires:	glibmm >= 2.22.0
+Requires:	gtk+2 >= 2:2.18.0
+Requires:	pangomm >= 2.26.0
 Obsoletes:	Gtk--
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -50,9 +52,9 @@ Summary(pl.UTF-8):	Pliki nagłówkowe gtkmm i gdkmm
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	%{name}-atk-devel = %{version}-%{release}
-Requires:	glibmm-devel >= 2.18.0
-Requires:	gtk+2-devel >= 2:2.16.0
-Requires:	pangomm-devel >= 2.14.0
+Requires:	glibmm-devel >= 2.22.0
+Requires:	gtk+2-devel >= 2:2.18.0
+Requires:	pangomm-devel >= 2.26.0
 
 %description devel
 Header files for gtkmm library.
@@ -89,7 +91,7 @@ Summary:	A C++ interface for atk library
 Summary(pl.UTF-8):	Interfejs C++ dla biblioteki atk
 Group:		X11/Libraries
 Requires:	atk >= 1:1.24.0
-Requires:	glibmm >= 2.18.0
+Requires:	glibmm >= 2.22.0
 
 %description atk
 A C++ interface for atk library.
@@ -103,7 +105,7 @@ Summary(pl.UTF-8):	Interfejs C++ dla biblioteki atk - pliki nagłówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-atk = %{version}-%{release}
 Requires:	atk-devel >= 1:1.24.0
-Requires:	glibmm-devel >= 2.18.0
+Requires:	glibmm-devel >= 2.22.0
 
 %description atk-devel
 A C++ interface for atk library - header files.
@@ -128,7 +130,7 @@ Interfejs C++ dla biblioteki atk - wersja statyczna.
 
 %build
 %{__libtoolize}
-%{__aclocal} -I scripts
+%{__aclocal} -I build
 %{__autoconf}
 %{__automake}
 %configure \
@@ -154,7 +156,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog CHANGES NEWS PORTING README
+%doc AUTHORS ChangeLog NEWS PORTING README
 %attr(755,root,root) %{_libdir}/libgdkmm-2.4.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libgdkmm-2.4.so.1
 %attr(755,root,root) %{_libdir}/libgtkmm-2.4.so.*.*.*
