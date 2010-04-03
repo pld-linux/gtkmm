@@ -16,8 +16,8 @@ BuildRequires:	atk-devel >= 1:1.24.0
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	cairomm-devel >= 1.6.3
-BuildRequires:	glibmm-devel >= 2.24
-BuildRequires:	gtk+2-devel >= 2:2.18.0
+BuildRequires:	glibmm-devel >= 2.24.0
+BuildRequires:	gtk+2-devel >= 2:2.20.0
 BuildRequires:	libsigc++-devel
 BuildRequires:	libstdc++-devel >= 5:3.3.1
 BuildRequires:	libtool >= 2:1.4d-3
@@ -27,8 +27,8 @@ BuildRequires:	perl-base >= 1:5.6.0
 BuildRequires:	pkgconfig
 Requires:	%{name}-atk = %{version}-%{release}
 Requires:	cairomm >= 1.6.3
-Requires:	glibmm >= 2.22.0
-Requires:	gtk+2 >= 2:2.18.0
+Requires:	glibmm >= 2.24.0
+Requires:	gtk+2 >= 2:2.20.0
 Requires:	pangomm >= 2.26.0
 Obsoletes:	Gtk--
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -52,8 +52,8 @@ Summary(pl.UTF-8):	Pliki nagłówkowe gtkmm i gdkmm
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	%{name}-atk-devel = %{version}-%{release}
-Requires:	glibmm-devel >= 2.22.0
-Requires:	gtk+2-devel >= 2:2.18.0
+Requires:	glibmm-devel >= 2.24.0
+Requires:	gtk+2-devel >= 2:2.20.0
 Requires:	pangomm-devel >= 2.26.0
 
 %description devel
@@ -91,7 +91,7 @@ Summary:	A C++ interface for atk library
 Summary(pl.UTF-8):	Interfejs C++ dla biblioteki atk
 Group:		X11/Libraries
 Requires:	atk >= 1:1.24.0
-Requires:	glibmm >= 2.22.0
+Requires:	glibmm >= 2.24.0
 
 %description atk
 A C++ interface for atk library.
@@ -105,7 +105,7 @@ Summary(pl.UTF-8):	Interfejs C++ dla biblioteki atk - pliki nagłówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-atk = %{version}-%{release}
 Requires:	atk-devel >= 1:1.24.0
-Requires:	glibmm-devel >= 2.22.0
+Requires:	glibmm-devel >= 2.24.0
 
 %description atk-devel
 A C++ interface for atk library - header files.
