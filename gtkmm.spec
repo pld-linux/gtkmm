@@ -5,14 +5,14 @@
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl.UTF-8):	Wrapper C++ dla GTK+
 Name:		gtkmm
-Version:	2.20.3
+Version:	2.22.0
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.20/%{name}-%{version}.tar.bz2
-# Source0-md5:	c35f236091b4f96fe45c53b4107400a9
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.22/%{name}-%{version}.tar.bz2
+# Source0-md5:	4356dfde44b13f7fb1bfbd97623f37dd
 URL:		http://www.gtkmm.org/
-BuildRequires:	atk-devel >= 1:1.24.0
+BuildRequires:	atkmm-devel >= 2.22.0
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	cairomm-devel >= 1.6.3
@@ -25,7 +25,7 @@ BuildRequires:	mm-common >= 0.8
 BuildRequires:	pangomm-devel >= 2.26.0
 BuildRequires:	perl-base >= 1:5.6.0
 BuildRequires:	pkgconfig
-Requires:	%{name}-atk = %{version}-%{release}
+Requires:	atkmm >= 2.22.0
 Requires:	cairomm >= 1.6.3
 Requires:	glibmm >= 2.24.0
 Requires:	gtk+2 >= 2:2.20.0
@@ -51,7 +51,7 @@ Summary:	gtkmm and gdkmm header files
 Summary(pl.UTF-8):	Pliki nagłówkowe gtkmm i gdkmm
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	%{name}-atk-devel = %{version}-%{release}
+Requires:	atkmm-devel >= 2.22.0
 Requires:	glibmm-devel >= 2.24.0
 Requires:	gtk+2-devel >= 2:2.20.0
 Requires:	pangomm-devel >= 2.26.0
@@ -86,45 +86,6 @@ gtkmm and gdkmm static libraries.
 %description static -l pl.UTF-8
 Biblioteki statyczne gtkmm i gdkmm.
 
-%package atk
-Summary:	A C++ interface for atk library
-Summary(pl.UTF-8):	Interfejs C++ dla biblioteki atk
-Group:		X11/Libraries
-Requires:	atk >= 1:1.24.0
-Requires:	glibmm >= 2.24.0
-
-%description atk
-A C++ interface for atk library.
-
-%description atk -l pl.UTF-8
-Interfejs C++ dla biblioteki atk.
-
-%package atk-devel
-Summary:	A C++ interface for atk library - header files
-Summary(pl.UTF-8):	Interfejs C++ dla biblioteki atk - pliki nagłówkowe
-Group:		X11/Development/Libraries
-Requires:	%{name}-atk = %{version}-%{release}
-Requires:	atk-devel >= 1:1.24.0
-Requires:	glibmm-devel >= 2.24.0
-
-%description atk-devel
-A C++ interface for atk library - header files.
-
-%description atk-devel -l pl.UTF-8
-Interfejs C++ dla biblioteki atk - pliki nagłówkowe.
-
-%package atk-static
-Summary:	A C++ interface for atk library - static version
-Summary(pl.UTF-8):	Interfejs C++ dla biblioteki atk - wersja statyczna
-Group:		X11/Development/Libraries
-Requires:	%{name}-atk-devel = %{version}-%{release}
-
-%description atk-static
-A C++ interface for atk library - static version.
-
-%description atk-static -l pl.UTF-8
-Interfejs C++ dla biblioteki atk - wersja statyczna.
-
 %prep
 %setup -q
 
@@ -151,9 +112,6 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%post	atk -p /sbin/ldconfig
-%postun	atk -p /sbin/ldconfig
-
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS PORTING README
@@ -179,30 +137,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_docdir}/gtkmm-2.4
 %{_datadir}/devhelp/books/gtkmm-2.4
-%dir %{_datadir}/gtkmm-2.4
-%{_datadir}/gtkmm-2.4/demo
 
 %if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libgdkmm-2.4.a
 %{_libdir}/libgtkmm-2.4.a
-%endif
-
-%files atk
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libatkmm-1.6.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libatkmm-1.6.so.1
-
-%files atk-devel
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libatkmm-1.6.so
-%{_libdir}/libatkmm-1.6.la
-%{_pkgconfigdir}/atkmm-1.6.pc
-%{_includedir}/atkmm-1.6
-
-%if %{with static_libs}
-%files atk-static
-%defattr(644,root,root,755)
-%{_libdir}/libatkmm-1.6.a
 %endif
