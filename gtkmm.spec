@@ -93,9 +93,9 @@ Biblioteki statyczne gtkmm i gdkmm.
 %{__libtoolize}
 %{__aclocal} -I build
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
-	--disable-demos \
 	%{?with_static_libs:--enable-static}
 
 %{__make}
