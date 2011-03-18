@@ -6,7 +6,7 @@ Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl.UTF-8):	Wrapper C++ dla GTK+
 Name:		gtkmm
 Version:	2.24.0
-Release:	1
+Release:	0.1
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.24/%{name}-%{version}.tar.bz2
