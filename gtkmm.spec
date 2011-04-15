@@ -5,19 +5,19 @@
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl.UTF-8):	Wrapper C++ dla GTK+
 Name:		gtkmm
-Version:	3.0.0
+Version:	2.24.0
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/3.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	90bb087152a3214c2cc348aa04f917c3
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.24/%{name}-%{version}.tar.bz2
+# Source0-md5:	d0413781fdb884e0ccba52844c94485f
 URL:		http://www.gtkmm.org/
 BuildRequires:	atkmm-devel >= 2.22.0
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
-BuildRequires:	cairomm-devel >= 1.9.2
+BuildRequires:	cairomm-devel >= 1.6.3
 BuildRequires:	glibmm-devel >= 2.24.0
-BuildRequires:	gtk+3-devel >= 3.0.0
+BuildRequires:	gtk+2-devel >= 2:2.24.0
 BuildRequires:	libsigc++-devel
 BuildRequires:	libstdc++-devel >= 5:3.3.1
 BuildRequires:	libtool >= 2:1.4d-3
@@ -26,9 +26,9 @@ BuildRequires:	pangomm-devel >= 2.28.0
 BuildRequires:	perl-base >= 1:5.6.0
 BuildRequires:	pkgconfig
 Requires:	atkmm >= 2.22.0
-Requires:	cairomm >= 1.9.2
+Requires:	cairomm >= 1.6.3
 Requires:	glibmm >= 2.24.0
-Requires:	gtk+3 >= 3.0.0
+Requires:	gtk+2 >= 2:2.20.0
 Requires:	pangomm >= 2.28.0
 Obsoletes:	Gtk--
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -53,7 +53,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	atkmm-devel >= 2.22.0
 Requires:	glibmm-devel >= 2.24.0
-Requires:	gtk+3-devel >= 3.0.0
+Requires:	gtk+2-devel >= 2:2.20.0
 Requires:	pangomm-devel >= 2.28.0
 
 %description devel
@@ -118,30 +118,30 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS PORTING README
-%attr(755,root,root) %{_libdir}/libgdkmm-3.0.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgdkmm-3.0.so.1
-%attr(755,root,root) %{_libdir}/libgtkmm-3.0.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgtkmm-3.0.so.1
+%attr(755,root,root) %{_libdir}/libgdkmm-2.4.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libgdkmm-2.4.so.1
+%attr(755,root,root) %{_libdir}/libgtkmm-2.4.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libgtkmm-2.4.so.1
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libgdkmm-3.0.so
-%attr(755,root,root) %{_libdir}/libgtkmm-3.0.so
-%{_libdir}/gdkmm-3.0
-%{_libdir}/gtkmm-3.0
-%{_includedir}/gdkmm-3.0
-%{_includedir}/gtkmm-3.0
-%{_pkgconfigdir}/gdkmm-3.0.pc
-%{_pkgconfigdir}/gtkmm-3.0.pc
+%attr(755,root,root) %{_libdir}/libgdkmm-2.4.so
+%attr(755,root,root) %{_libdir}/libgtkmm-2.4.so
+%{_libdir}/gdkmm-2.4
+%{_libdir}/gtkmm-2.4
+%{_includedir}/gdkmm-2.4
+%{_includedir}/gtkmm-2.4
+%{_pkgconfigdir}/gdkmm-2.4.pc
+%{_pkgconfigdir}/gtkmm-2.4.pc
 
 %if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/libgdkmm-3.0.a
-%{_libdir}/libgtkmm-3.0.a
+%{_libdir}/libgdkmm-2.4.a
+%{_libdir}/libgtkmm-2.4.a
 %endif
 
 %files apidocs
 %defattr(644,root,root,755)
-%{_docdir}/gtkmm-3.0
-%{_datadir}/devhelp/books/gtkmm-3.0
+%{_docdir}/gtkmm-2.4
+%{_datadir}/devhelp/books/gtkmm-2.4
