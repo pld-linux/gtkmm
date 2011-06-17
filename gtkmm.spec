@@ -12,7 +12,7 @@ Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.24/%{name}-%{version}.tar.bz2
 # Source0-md5:	d0413781fdb884e0ccba52844c94485f
 URL:		http://www.gtkmm.org/
-BuildRequires:	atkmm-devel >= 2.22.0
+BuildRequires:	atkmm-devel >= 2.22.2
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	cairomm-devel >= 1.6.3
@@ -25,7 +25,7 @@ BuildRequires:	mm-common >= 0.8
 BuildRequires:	pangomm-devel >= 2.28.0
 BuildRequires:	perl-base >= 1:5.6.0
 BuildRequires:	pkgconfig
-Requires:	atkmm >= 2.22.0
+Requires:	atkmm >= 2.22.2
 Requires:	cairomm >= 1.6.3
 Requires:	glibmm >= 2.24.0
 Requires:	gtk+2 >= 2:2.20.0
@@ -51,7 +51,7 @@ Summary:	gtkmm and gdkmm header files
 Summary(pl.UTF-8):	Pliki nagłówkowe gtkmm i gdkmm
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	atkmm-devel >= 2.22.0
+Requires:	atkmm-devel >= 2.22.2
 Requires:	glibmm-devel >= 2.24.0
 Requires:	gtk+2-devel >= 2:2.20.0
 Requires:	pangomm-devel >= 2.28.0
