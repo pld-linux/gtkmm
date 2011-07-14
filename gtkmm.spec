@@ -5,12 +5,12 @@
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl.UTF-8):	Wrapper C++ dla GTK+
 Name:		gtkmm
-Version:	2.24.0
+Version:	2.24.2
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.24/%{name}-%{version}.tar.bz2
-# Source0-md5:	d0413781fdb884e0ccba52844c94485f
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.24/%{name}-%{version}.tar.xz
+# Source0-md5:	388a63ffc40cc8e208df9a1732a67d2d
 URL:		http://www.gtkmm.org/
 BuildRequires:	atkmm-devel >= 2.22.2
 BuildRequires:	autoconf >= 2.59
@@ -25,10 +25,12 @@ BuildRequires:	mm-common >= 0.8
 BuildRequires:	pangomm-devel >= 2.28.0
 BuildRequires:	perl-base >= 1:5.6.0
 BuildRequires:	pkgconfig
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Requires:	atkmm >= 2.22.2
 Requires:	cairomm >= 1.6.3
 Requires:	glibmm >= 2.24.0
-Requires:	gtk+2 >= 2:2.20.0
+Requires:	gtk+2 >= 2:2.24.0
 Requires:	pangomm >= 2.28.0
 Obsoletes:	Gtk--
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -53,7 +55,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	atkmm-devel >= 2.22.2
 Requires:	glibmm-devel >= 2.24.0
-Requires:	gtk+2-devel >= 2:2.20.0
+Requires:	gtk+2-devel >= 2:2.24.0
 Requires:	pangomm-devel >= 2.28.0
 
 %description devel
