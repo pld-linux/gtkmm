@@ -5,23 +5,23 @@
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl.UTF-8):	Wrapper C++ dla GTK+
 Name:		gtkmm
-Version:	2.24.2
+Version:	2.24.3
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.24/%{name}-%{version}.tar.xz
-# Source0-md5:	388a63ffc40cc8e208df9a1732a67d2d
+# Source0-md5:	42fc5a3feeb33ea59b7660200e2a5465
 URL:		http://www.gtkmm.org/
 BuildRequires:	atkmm-devel >= 2.22.2
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	cairomm-devel >= 1.6.3
-BuildRequires:	glibmm-devel >= 2.24.0
+BuildRequires:	glibmm-devel >= 2.28.0
 BuildRequires:	gtk+2-devel >= 2:2.24.0
 BuildRequires:	libsigc++-devel
 BuildRequires:	libstdc++-devel >= 5:3.3.1
 BuildRequires:	libtool >= 2:1.4d-3
-BuildRequires:	mm-common >= 0.8
+BuildRequires:	mm-common >= 0.9.5
 BuildRequires:	pangomm-devel >= 2.28.0
 BuildRequires:	perl-base >= 1:5.6.0
 BuildRequires:	pkgconfig
@@ -29,7 +29,7 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	atkmm >= 2.22.2
 Requires:	cairomm >= 1.6.3
-Requires:	glibmm >= 2.24.0
+Requires:	glibmm >= 2.28.0
 Requires:	gtk+2 >= 2:2.24.0
 Requires:	pangomm >= 2.28.0
 Obsoletes:	Gtk--
@@ -54,7 +54,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe gtkmm i gdkmm
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	atkmm-devel >= 2.22.2
-Requires:	glibmm-devel >= 2.24.0
+Requires:	glibmm-devel >= 2.28.0
 Requires:	gtk+2-devel >= 2:2.24.0
 Requires:	pangomm-devel >= 2.28.0
 
