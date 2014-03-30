@@ -1,12 +1,12 @@
 #
 # Conditional build:
 %bcond_without	static_libs	# don't build static libraries
-#
+
 Summary:	A C++ interface for the GTK+ (a GUI library for X)
 Summary(pl.UTF-8):	Wrapper C++ dla GTK+
 Name:		gtkmm
 Version:	2.24.4
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.24/%{name}-%{version}.tar.xz
@@ -82,6 +82,9 @@ Summary(pl.UTF-8):	Szczegółowa dokumentacja gtkmm i gdkmm
 Group:		Documentation
 Requires:	devhelp
 Obsoletes:	gtkmm-doc
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 Reference documentation for gtkmm and gdkmm.
