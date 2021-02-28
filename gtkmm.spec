@@ -82,9 +82,7 @@ Summary(pl.UTF-8):	Szczegółowa dokumentacja gtkmm i gdkmm
 Group:		Documentation
 Requires:	devhelp
 Obsoletes:	gtkmm-doc
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 Reference documentation for gtkmm and gdkmm.
